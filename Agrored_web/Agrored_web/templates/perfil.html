@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRORED - Perfil Usuario</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/perfil.css">
+    <!-- Favicon -->
+    <link rel="icon" href="/static/img/Logo.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="/static/img/Logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/static/js/actions_perfil.js"></script>
+</head>
+
+<body>
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <div class="Navbar">
+            <!-- Logo -->
+            <a href="/templates/index.html" class="logo-link">
+                <img
+                    src="/static/img/Logo_letras.png"
+                    alt="Logo AGRORED"
+                    class="imagen_logo"
+                >
+            </a>
+            <!-- Menú -->
+            <a href="#">Productos</a>
+            <a href="#">Noticias</a>
+            <a href="#">Mejoras</a>
+            <!-- Buscador -->
+            <input
+                type="search"
+                placeholder="Buscar productos..."
+                aria-label="Buscar productos"
+            >
+            <!-- Botones -->
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html">
+                    <input
+                        type="button"
+                        value="Iniciar"
+                        class="Iniciar"
+                    >
+                </a>
+                <a href="/templates/registrarse.html">
+                    <input
+                        type="button"
+                        value="Registrarse"
+                        class="Registrarse"
+                    >
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= FIN NAVBAR ================= -->
+
+
+    <!-- ================= CONTENIDO ================= -->
+
+    <main class="contenido">
+        <div class="perfil">
+            <!-- Parte superior del perfil -->
+            <div class="perfil-superior">
+                <!-- Foto de usuario -->
+                <div class="foto-usuario">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <!-- Nombre -->
+                <div class="nombre">
+                    Usuario X
+                </div>
+            </div>
+            <!-- Parte inferior -->
+            <div class="perfil-inferior">
+                <!-- Información del usuario -->
+                <div class="informacion">
+                    <p>
+                        <strong>Nombres:</strong> US
+                    </p>
+                    <p>
+                        <strong>Apellidos:</strong> USUARIO
+                    </p>
+                    <p>
+                        <strong>Correo:</strong> asd@asd
+                    </p>
+                    <p>
+                        <strong>Teléfono:</strong> 1234567890
+                    </p>
+                    <p>
+                        <strong>Dirección:</strong> Calle X 123
+                    </p>
+                    <p>
+                        <strong>Descripción:</strong>
+                    </p>
+                </div>
+                <!-- ================= ACCIONES ================= -->
+                <div class="acciones">
+                    <!-- Ventas -->
+                    <button
+                        type="button"
+                        class="accion dinero"
+                        title="Ventas"
+                        aria-label="Ventas"
+                        onclick="Ventas()"
+                    >
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    </button>
+                    <!-- Seguridad -->
+                    <button
+                        type="button"
+                        class="accion seguridad"
+                        title="Seguridad"
+                        aria-label="Seguridad"
+                        onclick="Seguridad()"
+                    >
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </button>
+                    <!-- Carrito -->
+                    <button
+                        type="button"
+                        class="accion carrito"
+                        title="Carrito"
+                        aria-label="Carrito"
+                        onclick="Carrito()"
+                    >
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <!-- Favoritos -->
+                    <button
+                        type="button"
+                        class="accion corazon"
+                        title="Favoritos"
+                        aria-label="Favoritos"
+                        onclick="Carrito()"
+                    >
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <!-- Configuración -->
+                    <button
+                        type="button"
+                        class="accion usuario"
+                        title="Configuración"
+                        aria-label="Configuración"
+                        onclick="Configuracion()"
+                    >
+                        <i class="fa-solid fa-user-gear"></i>
+                    </button>
+                    <!-- Cerrar sesión -->
+                    <button
+                        type="button"
+                        class="accion salir"
+                        title="Cerrar sesión"
+                        aria-label="Cerrar sesión"
+                        onclick="window.location.href='/templates/index.html'"
+                    >
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+                <!-- ================= FIN ACCIONES ================= -->
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= FIN CONTENIDO ================= -->
+
+
+    <!-- ================= FOOTER =================
+
+    <footer>
+
+        <h3>
+            AGRORED
+        </h3>
+
+        <p>
+            Siempre al servicio del Campesino y el Comprador
+        </p>
+
+
+        Redes sociales
+        <div class="redes">
+
+            <a href="#"
+                title="Instagram"
+                aria-label="Instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+            <a href="#"
+                title="LinkedIn"
+                aria-label="LinkedIn">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+            </a>
+
+
+            <a href="#"
+                title="X"
+                aria-label="X">
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </a>
+
+        </div>
+
+    </footer>
+
+================= FIN FOOTER ================= -->
+
+
+<!--Footer-->
+<footer class="pie-pagina">
+    <div class="contenedor-footer">
+        
+        <div class="columna-footer">
+            <h3>AGRORED</h3>
+            <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+        </div>
+
+        <div class="columna-footer">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Mejoras</a></li>
+                <li><a href="#">Categorías</a></li>
+            </ul>
+        </div>
+
+        <div class="columna-footer">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright-footer">
+        <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<!--Fin Footer-->
+</body>
+
+</html>

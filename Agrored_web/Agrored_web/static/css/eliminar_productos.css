@@ -1,70 +1,366 @@
-.tituloproducto{
+:root {
+    --verde-agro: #06bc67;
+    --verde-suave: #e8f7ee;
+    --amarillo-agro: #f9d71c;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-texto: #555555;
+    --fondo: #f4f7f6;
+    --radio: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Arial Black", Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--negro);
+}
+
+/* NavBar -----------------------------------------------------------------------------------------------------------------------*/
+.Navbar {
+    background-color: rgb(253, 253, 253);
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 1%;
+}
+
+
+.Navbar a {
+    margin: 0 10px;
+    font-family: "Arial Black", Arial, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.Navbar a:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.Navbar a:hover {
+    color: rgb(167, 167, 167);
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.Navbar input[type="search"] {
+    border-color: rgb(167, 167, 167);
+    width: 500px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline-color: #ccc;
+    font-size: 16px;
+    background-color: #DADADA;
+    background-image: url(../img/Lupa.png);
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-right: 40px;
+}
+
+.Navbar input[type="search"]:hover {
+    outline-color: aquamarine;
+}
+
+.Navbar input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Navbar input[type="button"].Iniciar {
+    background-color: #12DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Iniciar:hover {
+    background-color: #0fb900;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse {
+    background-color: #D3DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse:hover {
+    background-color: #bfc501;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar .botones {
+    display: flex;
+    gap: 10px;
+}
+
+
+.imagen_logo {
+    width: 160px; /* ajusta este valor a tu gusto */
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Fin NavBar -------------------------------------------------------------------------------------------------------------------*/
+
+.html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;           
+  flex-direction: column; 
+  min-height: 100vh;       
+  background: linear-gradient(to bottom, #8de37d 0%, #7ed957 25%, #3a9d3a 70%, #1e7a1e 100%);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tituloproductos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centra horizontalmente */
+  text-align: center;
+}
+
+.icono-categorias{
+    display: flex;
+    align-items: center; /* Centra verticalmente el icono con el texto */
+    gap: 5px;
+}
+
+
+.portada {
+  display: flex;
   align-items: center;      /* centra verticalmente los dos bloques */
   justify-content: center;  /* centra el conjunto horizontalmente */
 }
 
 .opciones {
-    display: flex;
-    align-items: center;      /* centra verticalmente los dos bloques */
-    justify-content: center;  /* centra el conjunto horizontalmente */
-    gap: 30px;
-}
-.imagen {
-    width: 250px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background: white;
+  flex-wrap: wrap;  
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
-.imagen img {
-    width: 100%;
-    display: block;
+.opciones {
+  display: flex;
+  align-items: center;      /* centra verticalmente los dos bloques */
+  justify-content: center;  /* centra el conjunto horizontalmente */
+  gap: 40px;
+  border: #555;
+}
+
+.imagenp img {
+  width: 40%;
+  object-fit: contain;   /*  la reduce para que quepa completa, sin recortar */
+  display: block;
+}
+
+
+.imagen {
+  background: #f4f7f6;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.imagen {
+  width: fit-content;    /* se ajusta al elemento más ancho dentro (imagen o texto) */
+  max-width: 300px;      /* límite fijo, no crece más de esto */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .imagen #descripcion {
-    padding: 10px;
-    font-size: 0.85rem;
-    color: #555;
+  margin: 10px;
+  font-size: 0.85rem;
+  color: #555;
+  max-width: 100%;
+  word-wrap: break-word;   /*  evita que el texto se salga del contenedor */
+  text-align: center;
 }
+
 .atributos {
-    display: flex;
-    background: #eeeeee;
-    border-radius: 12px;
-    overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: var(--blanco);
+  border: 2px solid var(--verde-agro);
+  border-radius: var(--radio);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  flex: 1;
+  min-width: 260px;
 }
 
 .atributo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 30px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 18px 20px;
+  text-align: center;
 }
 
 .atributo-item:first-child {
-  border-right: 1px solid #ccc; /* la línea divisoria */
+  border-right: 1px solid #e0e0e0;
 }
 
 .atributo-item label {
-    font-size: 0.8rem;
-    color: #777;
-    margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #999999;
+  padding-bottom: 10px;
 }
 
 .atributo-item p {
-    font-size: 1.1rem;
-    font-weight: bold;
-    background: #dcdcdc;
-    padding: 8px 16px;
-    border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--negro);
+  background: #d9d9d9;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 0;
+  min-width: 90px;
+}
+
+/* botón */
+.eliminar {
+  font-family: "Arial Black", Arial, sans-serif;
+  padding: 10px;
+  border: none;
+  background-color:  rgb(250, 46, 46);
+  color:#eeeeee;
+  border-radius: 15px;
+}
+
+.eliminar:hover{
+  background-color: red;
+}
+@media (max-width: 768px) {
+    .portada,
+    .opciones {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    main {
+      padding: 0 10px;
+  }
+}
+/*Footer------------------------------------------------------------------------------------------------------------------------------*/
+.pie-pagina {
+    background-color: #1a1a1a; 
+    color: #ffffff;
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+    gap: 30px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 220px;
+}
+
+.columna-footer h3 {
+    color: #12DA00;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.columna-footer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #12DA00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.columna-footer p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
 }
-.eliminar {
-    padding: 20px;
-    background-color: red;
-    color:#eeeeee;
-    border-radius: 5px;
+
+.columna-footer ul li {
+    margin-bottom: 10px;
 }
+
+.columna-footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+
+.columna-footer ul li a:hover {
+    color: #12DA00;
+}
+
+.copyright-footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 15px 20px;
+    border-top: 1px solid #333333;
+}
+
+.copyright-footer p {
+    margin: 0;
+    color: #888888;
+    font-size: 13px;
+}
+/*Fin Footer------------------------------------------------------------------------------------------------------------------------------*/

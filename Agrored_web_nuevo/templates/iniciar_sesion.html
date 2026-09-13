@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | AgroRed</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <script src="../static/js/actions_iniciar.js"></script>
+    <link rel="icon" href="../static/img/Logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav>
+        <div class="Navbar">
+            <a href="../templates/index.html" class="logo-link">
+                <img src="../static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="">Productos</a>
+            <a href="">Noticias</a>
+            <a href="">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="../templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="../templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+    <!--Fin Navbar-->
+
+
+    <!--Formulario-->
+    <div class="login-container">
+        <div class="login-side-image">
+            <img src="https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Campo Agro">
+            <div class="image-content">
+                <h2>Únete a la<br><span>revolución</span><br>del campo</h2>
+                <p>Conectamos directamente a los productores locales con la ciudad.</p>
+            </div>
+        </div>
+
+        <div class="login-form-side">
+            <a href="" class="logo-login">
+                AGRO<span>RED</span>
+            </a>
+
+            <h3>¡Hola de nuevo!</h3>
+            <p class="subtitle">Ingresa tus datos para continuar.</p>
+            
+            <form action="../static/php/iniciar_sesion.php" method="post">
+                <div class="input-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="nombre@correo.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Iniciar Sesión
+                    <span class="material-icons-round">east</span>
+                </button>
+            </form>
+
+
+            <div class="footer-links">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="" class="btn-register-link">¿No tienes cuenta? Regístrate</a>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <a href="" style="display: inline-flex; align-items: center; gap: 5px;">
+                    <span class="material-icons-round" style="font-size: 16px;">arrow_back</span>
+                    Volver a la tienda
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <!--Fin Formulario-->
+
+
+    <!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+</body>
+</html>

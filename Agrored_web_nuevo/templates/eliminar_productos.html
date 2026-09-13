@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | AgroRed</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <script src="/static/js/actions_iniciar.js"></script>
+    <link rel="icon" href="/static/img/Logo.png">
+    <link rel="stylesheet" href="/static/css/eliminar_productos.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+</head>
+<body>
+    <!--Navbar-->
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="">Productos</a>
+            <a href="">Noticias</a>
+            <a href="">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+    <!--Fin Navbar-->
+
+    <!--contenido-->
+    
+    <div class="tituloproductos">
+        <h1>Productos</h1>
+        <img src="/static/img/Znahoria.png" alt="Verduras">
+        <p>Acá se encuentran todos los productos que has subido</p>
+
+        <div class="opciones">
+            
+            <div class="imagen">
+                <img src="/static/img/papas.png" alt="producto1">
+                <p id="descripcion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic consequatur neque fuga vitae ratione repellat veniam enim saepe deserunt, corporis magni nisi minus facere obcaecati delectus. Soluta pariatur iure molestiae?</p>
+            </div> <!-- Aquí cerramos el div de imagen -->
+            
+            <div class="atributos"> <!-- Aquí abrimos el div de atributos -->
+                <label for="parrafo">Precio</label>
+                <p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque quisquam eaque culpa.</p>
+                
+                <label for="parrafo2">Unidades</label>
+                <p class="parrafo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque quisquam eaque culpa.</p>
+            </div> <!-- Cerramos atributos -->
+
+           <button class="eliminar_bot" type="button" onclick="return eliminarproductos()">Eliminar</button>
+
+        </div> <!-- Cerramos opciones -->
+    </div>
+    <!--Fin contenido-->
+
+ 
+
+<!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+
+
+
+</body>
+</html>

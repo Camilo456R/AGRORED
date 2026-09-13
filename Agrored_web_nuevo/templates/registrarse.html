@@ -7,9 +7,9 @@
     <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/static/css/style3_unificado.css">
-    <script src="/static/js/actions_registrarse.js"></script>
-    <link rel="icon" href="/static/img/Logo.png">
+        <link rel="stylesheet" href="../static/css/registrarse.css">
+    <script src="../static/js/actions_registrarse.js"></script>
+    <link rel="icon" href="../static/img/Logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -19,17 +19,17 @@
     <!--Navbar-->
     <nav>
         <div class="Navbar">
-            <a href="/templates/index.html" class="logo-link">
-                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            <a href="../templates/index.html" class="logo-link">
+                <img src="../static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
             </a>
-            <a href="/templates/productos.html">Productos</a>
-            <a href="/templates/noticias.html">Noticias</a>
-            <a href="/templates/mejoras.html">Mejoras</a>
+            <a href="../templates/productos.html">Productos</a>
+            <a href="../templates/noticias.html">Noticias</a>
+            <a href="../templates/mejoras.html">Mejoras</a>
             <input type="search" placeholder="Arroz">
 
             <div class="botones">
-                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
-                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+                <a href="../templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="../templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
             </div>
         </div>
     </nav>
@@ -47,14 +47,14 @@
 
         <div class="register-form-section">
             <div class="logo-reg">
-                <img src="/static/img/Logo.png" height="30">
+                <img src="../static/img/Logo.png" height="30">
                 <div>AGRO<span>RED</span></div>
             </div>
 
             <h3>Crear cuenta</h3>
             <p class="subtitle">Únete a la red que conecta el campo con la ciudad.</p>
 
-            <form action="/static/php/procesar_registro.php" method="POST">
+            <form action="../static/php/registro_usuarios.php" method="POST">
 
                 <div class="input-group full-width">
                     <label>Nombre Completo</label>
@@ -63,12 +63,12 @@
 
                 <div class="input-group">
                     <label>Correo Electrónico</label>
-                    <input type="email" name="email" id="email" placeholder="ejemplo@correo.com" required>
+                    <input type="email" name="correo" id="correo" placeholder="ejemplo@correo.com" required>
                 </div>
 
                 <div class="input-group">
                     <label>Número de Celular</label>
-                    <input type="tel" name="telefono" id="telefono" placeholder="300 000 0000" required>
+                    <input type="tel" name="celular" id="celular" placeholder="300 000 0000" required>
                 </div>
 
                 <div class="input-group full-width password-wrapper">
@@ -95,8 +95,8 @@
                     <label>¿Cuál es tu rol en AgroRed?</label>
                     <select name="rol" id="rol" required>
                         <option value="" disabled selected>Selecciona tu perfil...</option>
-                        <option value="cliente">Quiero comprar (Cliente)</option>
-                        <option value="productor">Quiero vender (Productor/Campesino)</option>
+                        <option value="comprador">Quiero comprar (Cliente)</option>
+                        <option value="vendedor">Quiero vender (Productor/Campesino)</option>
                     </select>
                 </div>
 
@@ -113,9 +113,41 @@
 
                 <div class="input-group">
                     <label>Departamento</label>
+                    <!--Departamentos-->
                     <select name="departamento" id="departamento">
-                        <option value="Nada">Nada</option>
-                        <option value="Barrancabermeja">Barrancabermeja</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Antioquia">Antioquia</option>
+                        <option value="Arauca">Arauca</option>
+                        <option value="Atlántico">Atlántico</option>
+                        <option value="Bogotá D.C.">Bogotá D.C.</option>
+                        <option value="Bolívar">Bolívar</option>
+                        <option value="Boyacá">Boyacá</option>
+                        <option value="Caldas">Caldas</option>
+                        <option value="Caquetá">Caquetá</option>
+                        <option value="Casanare">Casanare</option>
+                        <option value="Cauca">Cauca</option>
+                        <option value="Cesar">Cesar</option>
+                        <option value="Chocó">Chocó</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Cundinamarca">Cundinamarca</option>
+                        <option value="Guainía">Guainía</option>
+                        <option value="Guaviare">Guaviare</option>
+                        <option value="Huila">Huila</option>
+                        <option value="La Guajira">La Guajira</option>
+                        <option value="Magdalena">Magdalena</option>
+                        <option value="Meta">Meta</option>
+                        <option value="Nariño">Nariño</option>
+                        <option value="Norte de Santander">Norte de Santander</option>
+                        <option value="Putumayo">Putumayo</option>
+                        <option value="Quindío">Quindío</option>
+                        <option value="Risaralda">Risaralda</option>
+                        <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                        <option value="Santander">Santander</option>
+                        <option value="Sucre">Sucre</option>
+                        <option value="Tolima">Tolima</option>
+                        <option value="Valle del Cauca">Valle del Cauca</option>
+                        <option value="Vaupés">Vaupés</option>
+                        <option value="Vichada">Vichada</option>
                     </select>
                 </div>
 

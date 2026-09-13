@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
 
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Evitamos el envio normal para poder validar y mostrar la alerta primero
+        e.preventDefault(); // Evitamos el envio normal para validar y controlar la alerta primero
 
         if (!validarRegistro()) {
-            return; // Los campos no son validos, la alerta de error ya se mostro dentro de validarRegistro()
+            return; // Los campos no son validos, la alerta de error ya se mostro
         }
 
         enviarFormulario(form);
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function validarRegistro() {
     var nombre = document.getElementById('nombre').value;
-    var email = document.getElementById('email').value;
-    var telefono = document.getElementById('telefono').value;
+    var email = document.getElementById('correo').value;
+    var celular = document.getElementById('celular').value;
     var contrasena = document.getElementById('contrasena').value;
     var numeroDocumento = document.getElementById('numeroDocumento').value;
     var rol = document.getElementById('rol').value;
@@ -24,7 +24,7 @@ function validarRegistro() {
     var municipio = document.getElementById('municipio').value;
 
     // Ningun campo obligatorio puede estar vacio
-    if (nombre == '' || email == '' || telefono == '' || contrasena == '' ||
+    if (nombre == '' || email == '' || celular == '' || contrasena == '' ||
         numeroDocumento == '' || rol == '' || direccion == '' ||
         departamento == '' || municipio == '') {
         Swal.fire({
@@ -50,23 +50,28 @@ function enviarFormulario(form) {
         body: datos
     })
         .then(function (response) {
-            return response.json();
+            // El PHP actual responde texto plano, no JSON, asi que lo leemos como texto
+            return response.text();
         })
-        .then(function (resultado) {
-            if (resultado.exito) {
+        .then(function (texto) {
+            // El PHP escribe "...con exito" cuando todo sale bien
+            var fueExitoso = texto.indexOf('exito') !== -1 && texto.indexOf('Hubo un error') === -1;
+
+            if (fueExitoso) {
                 Swal.fire({
                     title: "Bienvenido " + nombre + "!",
-                    text: resultado.mensaje,
+                    text: "Tu registro se completo correctamente.",
                     icon: "success",
-                    draggable: true
+                    draggable: true,
+                    allowOutsideClick: false // obliga a darle click en "OK" antes de continuar
                 }).then(function () {
-                    // Redirige al login una vez el usuario cierra la alerta
-                    window.location.href = "/templates/iniciar_sesion.html";
+                    // Solo redirige DESPUES de que el usuario cierra la alerta
+                    window.location.href = "../templates/iniciar_sesion.html";
                 });
             } else {
                 Swal.fire({
                     title: "No se pudo completar el registro",
-                    text: resultado.mensaje,
+                    text: "Es posible que el correo o el numero de documento ya esten registrados.",
                     icon: "error",
                     draggable: true
                 });
@@ -76,7 +81,7 @@ function enviarFormulario(form) {
         .catch(function (error) {
             Swal.fire({
                 title: "Error de conexion",
-                text: "No se pudo contactar al servidor. Verifica que Apache y PHP esten activos.",
+                text: "No se pudo contactar al servidor. Verifica que Apache y MySQL esten activos.",
                 icon: "error",
                 draggable: true
             });

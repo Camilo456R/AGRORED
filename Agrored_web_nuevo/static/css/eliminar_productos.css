@@ -1,0 +1,70 @@
+.tituloproducto{
+    display: flex;
+  align-items: center;      /* centra verticalmente los dos bloques */
+  justify-content: center;  /* centra el conjunto horizontalmente */
+}
+
+.opciones {
+    display: flex;
+    align-items: center;      /* centra verticalmente los dos bloques */
+    justify-content: center;  /* centra el conjunto horizontalmente */
+    gap: 30px;
+}
+.imagen {
+    width: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.imagen img {
+    width: 100%;
+    display: block;
+}
+
+.imagen #descripcion {
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #555;
+}
+.atributos {
+    display: flex;
+    background: #eeeeee;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.atributo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.atributo-item:first-child {
+  border-right: 1px solid #ccc; /* la línea divisoria */
+}
+
+.atributo-item label {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.atributo-item p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: #dcdcdc;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 0;
+}
+.eliminar {
+    padding: 20px;
+    background-color: red;
+    color:#eeeeee;
+    border-radius: 5px;
+}

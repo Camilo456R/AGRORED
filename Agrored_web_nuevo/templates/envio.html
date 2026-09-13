@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGRORED - Envío</title>
+  <link rel="stylesheet" href="../static/css/envio.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/static/js/actions_envio.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-agro">AGRO</span><span class="logo-red">RED</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Productos</a>
+      <a href="#">Noticias</a>
+      <a href="#">Mejoras</a>
+    </nav>
+    <div class="nav-right">
+      <div class="search-box">
+        <input type="text" placeholder="">
+        <i data-lucide="search" class="search-icon"></i>
+      </div>
+      <a href="#" class="icon-btn"><i data-lucide="shopping-cart"></i></a>
+      <a href="#" class="icon-btn"><i data-lucide="user"></i></a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-wrapper">
+    <h1 class="page-title">Envío</h1>
+
+    <!-- CONTENEDOR GRIS CON BORDES REDONDEADOS -->
+    <div class="gray-container">
+      
+      <!-- BANNER DE ENCABEZADO -->
+      <div class="banner-header">
+        AHORA HASTA TU<br>CASA
+      </div>
+
+      <!-- TARJETA CHECKOUT -->
+      <div class="checkout-card">
+        
+        <!-- SECCIÓN IZQUIERDA: DETALLES DE ENVÍO -->
+        <section class="shipping-section">
+          <h2>Detalles de Envío</h2>
+
+          <form class="shipping-form">
+            <div class="form-row">
+              <input type="text" placeholder="Primer nombre">
+              <input type="text" placeholder="Apellido">
+            </div>
+
+            <input type="text" placeholder="Dirección">
+
+            <input type="text" placeholder="Dirección 2 (opcional)">
+
+            <div class="form-row">
+              <div class="select-wrapper">
+                <select required>
+                  <option value="" disabled selected hidden>Departamento</option>
+                  <option value="cundinamarca">Cundinamarca</option>
+                  <option value="antioquia">Antioquia</option>
+                </select>
+                <i data-lucide="chevron-down" class="select-icon"></i>
+              </div>
+              <input type="text" placeholder="Municipio">
+            </div>
+
+            <div class="form-row">
+              <input type="text" placeholder="Código postal">
+              <input type="text" placeholder="Número de teléfono">
+            </div>
+
+            <!-- OPCIONES DE MÉTODO DE ENVÍO -->
+            <div class="shipping-options">
+              <label class="shipping-card-option selected">
+                <input type="radio" name="shipping_method" checked>
+                <div class="option-text">
+                  <strong>Envío Gratuito</strong>
+                  <span>Entre 2-5 días laborables</span>
+                </div>
+              </label>
+
+              <label class="shipping-card-option">
+                <input type="radio" name="shipping_method">
+                <div class="option-text">
+                  <strong>Entrega al día siguiente - $2.50</strong>
+                  <span>24 horas desde el pago</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- BOTONES DE ACCIÓN (AHORA DENTRO DEL FORMULARIO) -->
+            <div class="action-buttons">
+              <button type="submit" class="btn-pay">Continuar Envío</button>
+              <button type="button" class="btn-cancel">Cancelar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- SECCIÓN DERECHA: RESUMEN DE COMPRA -->
+        <aside class="summary-section">
+          <h2>Resumen</h2>
+
+          <div class="cart-items-list">
+            <div class="cart-item">
+              <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=150&q=80" alt="Manzana">
+              <div class="item-details">
+                <h3>MANZANA 'HONEYCRISP'</h3>
+                <p>Manzana dulce y crujiente.</p>
+              </div>
+              <span class="item-price">$1.50</span>
+            </div>
+
+            <div class="cart-item">
+              <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=150&q=80" alt="Pera">
+              <div class="item-details">
+                <h3>PERA ANJOU</h3>
+                <p>Fruta suave y dulce.</p>
+              </div>
+              <span class="item-price">$2.00</span>
+            </div>
+
+            <div class="cart-item">
+              <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=150&q=80" alt="Mango">
+              <div class="item-details">
+                <h3>MANGO ATAULFO</h3>
+                <p>Mango dulce sin hebras.</p>
+              </div>
+              <span class="item-price">$3.50</span>
+            </div>
+
+            <div class="cart-item">
+              <img src="https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?auto=format&fit=crop&w=150&q=80" alt="Arándanos">
+              <div class="item-details">
+                <h3>ARÁNDANOS ORGÁNICOS</h3>
+                <p>Arándanos frescos orgánicos.</p>
+              </div>
+              <span class="item-price">$4.99</span>
+            </div>
+          </div>
+
+          <div class="coupon-row">
+            <span>¿TIENES UN VALE?</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+
+          <div class="summary-totals">
+            <div class="total-row">
+              <span>SUBTOTAL</span>
+              <span>$11.99</span>
+            </div>
+            <div class="total-row">
+              <span>ENVÍO</span>
+              <span>GRATIS</span>
+            </div>
+            <div class="total-row">
+              <span>IMPUESTOS (10%)</span>
+              <span>$1.20</span>
+            </div>
+            
+            <div class="total-row final-total">
+              <strong>TOTAL</strong>
+              <strong>$13.19</strong>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">AGRORED</div>
+    <p class="footer-slogan">Siempre al servicio del Campesino y el Comprador</p>
+    <div class="social-links">
+      <a href="#"><i data-lucide="instagram"></i></a>
+      <a href="#"><i data-lucide="linkedin"></i></a>
+      <a href="#"><i data-lucide="twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const shippingForm = document.querySelector('.shipping-form');
+      const shippingOptions = document.querySelectorAll('.shipping-card-option');
+      const btnCancel = document.querySelector('.btn-cancel');
+
+      // Alternar selección visual de envío
+      shippingOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          shippingOptions.forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+          const radio = option.querySelector('input[type="radio"]');
+          radio.checked = true;
+        });
+      });
+
+      // Validar y procesar al hacer clic en "Continuar Envío"
+      shippingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstName = document.querySelector('input[placeholder="Primer nombre"]').value.trim();
+        const lastName = document.querySelector('input[placeholder="Apellido"]').value.trim();
+        const address = document.querySelector('input[placeholder="Dirección"]').value.trim();
+        const department = document.querySelector('select').value;
+        const municipality = document.querySelector('input[placeholder="Municipio"]').value.trim();
+        const phone = document.querySelector('input[placeholder="Número de teléfono"]').value.trim();
+
+        if (!firstName || !lastName || !address || !department || !municipality || !phone) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Faltan datos de envío',
+            text: 'Por favor, diligencia todos los campos requeridos para coordinar la entrega.',
+            confirmButtonColor: '#009900'
+          });
+          return;
+        }
+
+        Swal.fire({
+          icon: 'success',
+          title: '¡Dirección guardada!',
+          html: `Tu pedido será enviado a <strong>${address}</strong> (${municipality}, ${department}).`,
+          confirmButtonText: 'Continuar al Pago',
+          confirmButtonColor: '#009900'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'pago.html';
+          }
+        });
+      });
+
+      // Acción para el botón "Cancelar"
+      btnCancel.addEventListener('click', () => {
+        Swal.fire({
+          title: '¿Cancelar proceso de envío?',
+          text: 'Se perderán los datos ingresados en el formulario.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6e7881',
+          confirmButtonText: 'Sí, cancelar',
+          cancelButtonText: 'Volver al formulario'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            shippingForm.reset();
+            Swal.fire({
+              icon: 'info',
+              title: 'Formulario limpiado',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+      });
+
+      // Interactividad con el vale
+      const couponRow = document.querySelector('.coupon-row');
+      if (couponRow) {
+        couponRow.addEventListener('click', async () => {
+          const { value: couponCode } = await Swal.fire({
+            title: 'Ingresa tu cupón',
+            input: 'text',
+            inputPlaceholder: 'Ej. AGRO2026',
+            showCancelButton: true,
+            confirmButtonColor: '#009900',
+            cancelButtonText: 'Cancelar'
+          });
+
+          if (couponCode) {
+            Swal.fire({
+              icon: 'info',
+              title: 'Validando vale...',
+              text: `El cupón "${couponCode}" no es válido o ha expirado.`,
+              confirmButtonColor: '#009900'
+            });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

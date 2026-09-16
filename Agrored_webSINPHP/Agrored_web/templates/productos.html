@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="/static/css/productos.css">
+    <script src="/static/js/actions_productos.js"></script>
+    <link rel="icon" href="/static/img/Logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<!--Navbar-->
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="/templates/productos.html">Productos</a>
+            <a href="/templates/noticias.html">Noticias</a>
+            <a href="/templates/mejoras.html">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+<!--Fin Navbar-->
+
+
+
+
+<!--Contenidos-->
+<section class="seccion-categorias">
+    <div class="titulo-categorias">
+        <h2>Productos</h2>
+        <p>Disfruta de una cantidad enorme de Frutas, Verduras y Granos a tu dispocición</p>
+    </div>
+
+<!--Iconos Zanahoria-->
+    <div class="icono-categorias">
+        <img src="/static/img/Znahoria.png" alt="Icono" class="icono">
+        <div class="Texto_icono_categorias">
+            <h2>Verduras</h2>
+            <span>Frescas y orgánicas</span>
+        </div>
+    </div>
+<!--Fin Iconos Zanahoria-->
+
+<br>
+
+<!--Tarjetas con productos-->
+    <div class="tarjetas-grid">
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Zanahorias.png">
+                <span class="etiqueta">Orgánico</span>
+            </div>
+            <div class="info-tarjeta">
+                <h3>Zanahorias</h3>
+                <p>Cultivadas sin pesticidas</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.50 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Tomates_cherry.png">
+                <span class="etiqueta">Oferta</span>
+            </div>
+            <div class="info-tarjeta">
+                <h3>Tomates Cherry</h3>
+                <p>Frescos y jugosos para toda la familia</p>
+                <div class="pie-tarjeta">
+                    <h2>$3.00 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Pimentones.png">
+            </div>
+            <div class="info-tarjeta">
+                <h3>Pimentones Variados</h3>
+                <p>En todos sus estados</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.00 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+        <br>
+
+
+<!--Iconos Frutas-->
+    <div class="icono-categorias">
+        <img src="/static/img/Mandarina.png" alt="Icono" class="icono">
+        <div class="Texto_icono_categorias">
+            <h2>Frutas</h2>
+            <span>Frescas y orgánicas</span>
+        </div>
+    </div>
+<!--Fin Iconos Frutas-->
+
+
+    <div class="tarjetas-grid">
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Manzana.png">
+            </div>
+            <div class="info-tarjeta">
+                <h3>Manzana</h3>
+                <p>Fresca y crujiente</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.50 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_rCxF-zyhwLLo8R2UvNzG92hc1fXX-mZ62axoYxnV7GfbAWtD3Prfl5mJlcyYNrKsRjDrSHUR-tbnCckGuvZfGSVlYDmX7DquP-cVGg&s=10">
+            </div>
+            <div class="info-tarjeta">
+                <h3>Piña</h3>
+                <p>Dulce y jugosa</p>
+                <div class="pie-tarjeta">
+                    <h2>$3.00 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Pera.png">
+                <span class="etiqueta">Oferta</span>
+            </div>
+            <div class="info-tarjeta">
+                <h3>Pera</h3>
+                <p>Fresca y crujiente</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.50 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+<!--Iconos Granos-->
+    <div class="icono-categorias">
+        <img src="/static/img/Maiz.png" alt="Icono" class="icono">
+        <div class="Texto_icono_categorias">
+            <h2>Granos</h2>
+            <span>Nutritivos y bien valorados</span>
+        </div>
+    </div>
+<!--Fin Iconos Granos-->
+
+<div class="tarjetas-grid">
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="/static/img/Mazorca.png">
+                <span class="etiqueta">Ultimo</span>
+            </div>
+            <div class="info-tarjeta">
+                <h3>Mazorca</h3>
+                <p>Fresca y crujiente</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.50 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-frijoles-mexicanos.jpg">
+            </div>
+            <div class="info-tarjeta">
+                <h3>Frijoles</h3>
+                <p>Cuidadosamente seleccionados</p>
+                <div class="pie-tarjeta">
+                    <h2>$3.00 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="imagen-contenedor">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz8LMAyBiJ3vW6oUnJJYU1Usvg4UWXNCtIgHeJsJ4gaw&s=10">
+                <span class="etiqueta">Oferta</span>
+            </div>
+            <div class="info-tarjeta">
+                <h3>Lentejas</h3>
+                <p>Cuidadosamente seleccionadas</p>
+                <div class="pie-tarjeta">
+                    <h2>$2.50 Lb</h2>
+                    <input type="button" value="Agregar" class="boton-comprar" onclick="Pruducto_agregado()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    </div>
+</section>
+<!--Fin Contenidos-->
+
+
+
+
+
+
+
+<!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+
+
+
+
+
+
+
+
+</body>
+</html>

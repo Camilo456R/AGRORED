@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroRed | Registro Completo</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/style3_unificado.css">
+    <script src="/static/js/actions_registrarse.js"></script>
+    <link rel="icon" href="/static/img/Logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+<body>
+
+    <!--Navbar-->
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="/templates/productos.html">Productos</a>
+            <a href="/templates/noticias.html">Noticias</a>
+            <a href="/templates/mejoras.html">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+    <!--Fin Navbar-->
+
+
+    <div class="register-container">
+        
+        <div class="register-image">
+            <img src="https://images.pexels.com/photos/1267325/pexels-photo-1267325.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Campo">
+            <div class="image-overlay">
+                <h2>Cosechamos<br>Oportunidades<br>Para Todos.</h2>
+            </div>
+        </div>
+
+        <div class="register-form-section">
+            <div class="logo-reg">
+                <img src="/static/img/Logo.png" height="30">
+                <div>AGRO<span>RED</span></div>
+            </div>
+            
+            <h3>Crear cuenta</h3>
+            <p class="subtitle">Únete a la red que conecta el campo con la ciudad.</p>
+
+                <div class="input-group full-width">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre completo">
+                </div>
+
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" name="email" id="email" placeholder="ejemplo@correo.com">
+                </div>
+
+                <div class="input-group">
+                    <label>Número de Celular</label>
+                    <input type="tel" name="telefono" id="telefono" placeholder="300 000 0000">
+                </div>
+
+                <div class="input-group full-width password-wrapper">
+                    <label>Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Mínimo 8 caracteres">
+                    <span class="material-icons-round toggle-password">visibility</span>
+                </div>
+
+                <div class="input-group">
+                    <label>Tipo de Documento</label>
+                    <select name="tipo_documento">
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="NIT">NIT (Empresas)</option>
+                        <option value="CE">Cédula de Extranjería</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Número de Documento</label>
+                    <input type="text" name="numero_documento" id="numeroDocumento" placeholder="123456789">
+                </div>
+
+                <div class="input-group full-width">
+                    <label>¿Cuál es tu rol en AgroRed?</label>
+                    <select name="rol" id="rol">
+                        <option value="" disabled selected>Selecciona tu perfil...</option>
+                        <option value="cliente">Quiero comprar (Cliente)</option>
+                        <option value="productor">Quiero vender (Productor/Campesino)</option>
+                    </select>
+                </div>
+
+                <div id="campo-productor" class="input-group full-width">
+                    <label style="color: var(--verde-agro);">Nombre de tu Finca o Negocio</label>
+                    <input type="text" name="nombre_finca" id="inputFinca" placeholder="Ej: Finca La Esperanza">
+                    <small style="font-size: 11px; margin-top: 8px; color: var(--gris-texto); font-weight: 600;">Este nombre será visible para tus compradores.</small>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Dirección de residencia o entrega</label>
+                    <input type="text" name="direccion" id="direccion" placeholder="Calle, Carrera, número...">
+                </div>
+
+                <div class="input-group">
+                    <label>Departamento</label>
+                    <select name="departamento" id="departamento">
+                        <option value="Nada">Nada</option>
+                        <option value="Barrancabermeja">Barrancabermeja</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Municipio</label>
+                    <input type="text" name="municipio" id="municipio" placeholder="Ciudad o Municipio">
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Código Postal</label>
+                    <input type="text" name="codigo_postal" placeholder="Opcional">
+                </div>
+
+                <button type="submit" class="btn-register" onclick="return validarRegistro()">
+                    Completar registro
+                </button>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+</body>
+</html>

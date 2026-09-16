@@ -1,0 +1,1011 @@
+:root {
+    --verde-agro: hsl(152, 94%, 38%);
+    --verde-suave: #e8f7ee;
+    --amarillo-agro: #f9d71c;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-texto: #555555;
+    --fondo: #f4f7f6;
+    --radio: 16px;
+}
+
+
+/* =========================================================
+CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body {
+    font-family: "Arial Black", Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #06bc67,
+        #14bb68
+    );
+    color: var(--negro);}
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.Navbar {
+    width: 100%;
+    background-color: rgb(253, 253, 253);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 0;
+    padding: 1%;
+}
+
+
+/* Enlaces del Navbar */
+
+.Navbar a {
+    margin: 0 10px;
+
+    font-family: "Arial Black", Arial, sans-serif;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: rgb(0, 0, 0);
+}
+
+
+/* Logo */
+
+.Navbar a:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+
+/* Hover de enlaces */
+
+.Navbar a:hover {
+    color: rgb(167, 167, 167);
+
+    font-weight: lighter;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-link {
+    display: flex;
+
+    align-items: center;
+
+    line-height: 0;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+
+.imagen_logo {
+    width: 160px;
+
+    height: auto;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
+
+.Navbar input[type="search"] {
+
+    width: 500px;
+
+    padding: 8px 15px;
+
+    padding-right: 40px;
+
+    border-radius: 20px;
+
+    border: 1px solid #ccc;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background-color: #DADADA;
+
+    background-image: url("../img/Lupa.png");
+
+    background-position: right 15px center;
+
+    background-repeat: no-repeat;
+
+    background-size: 18px;
+}
+
+
+/* Cuando se selecciona el buscador */
+
+.Navbar input[type="search"]:focus {
+
+    border-color: var(--verde-agro);
+
+    box-shadow: 0 0 5px rgba(6, 188, 103, 0.4);
+}
+
+
+/* =========================================================
+   BOTONES DEL NAVBAR
+========================================================= */
+
+.Navbar .botones {
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+
+/* Botones */
+
+.Navbar input[type="button"] {
+
+    padding: 10px 20px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    border: 1px solid;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Botón iniciar */
+
+.Navbar input[type="button"].Iniciar {
+
+    background-color: #12DA00;
+
+    color: white;
+
+    border-color: #12DA00;
+}
+
+
+.Navbar input[type="button"].Iniciar:hover {
+
+    background-color: #0fb900;
+
+    border-color: #0fb900;
+
+    transform: scale(1.05);
+}
+
+
+/* Botón registrarse */
+
+.Navbar input[type="button"].Registrarse {
+
+    background-color: #D3DA00;
+
+    color: white;
+
+    border-color: #D3DA00;
+}
+
+
+.Navbar input[type="button"].Registrarse:hover {
+
+    background-color: #bfc501;
+
+    border-color: #bfc501;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+CONTENEDOR PRINCIPAL
+========================================================= */
+
+.contenido {
+
+    min-height: 575px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 23px 20px;
+    margin-bottom: 120px;
+}
+
+
+/* =========================================================
+TARJETA DE PERFIL
+========================================================= */
+
+.perfil {
+
+    width: 100%;
+
+    max-width: 588px;
+
+    height: 455px;
+
+    background-color: #d8d8d8;
+
+    border-radius: 95px;
+
+    box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PARTE SUPERIOR DEL PERFIL
+========================================================= */
+
+.perfil-superior {
+
+    height: 185px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom: 4px solid #999;
+
+    padding: 20px 45px;
+}
+
+
+/* =========================================================
+   FOTO DE USUARIO
+========================================================= */
+
+.foto-usuario {
+
+    width: 115px;
+
+    height: 115px;
+
+    border: 4px solid #222;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-right: 70px;
+
+    flex-shrink: 0;
+}
+
+
+.foto-usuario i {
+
+    font-size: 85px;
+
+    color: #222;
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.nombre {
+
+    color: white;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PARTE INFERIOR
+========================================================= */
+
+.perfil-inferior {
+
+    height: 270px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL USUARIO
+========================================================= */
+
+.informacion {
+
+    padding: 20px 48px;
+
+    border-right: 4px solid #999;
+
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 27px;
+
+    overflow-wrap: break-word;
+}
+
+
+.informacion p {
+
+    margin: 0 0 4px 0;
+}
+
+
+.informacion strong {
+
+    color: #333;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.acciones {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-rows: repeat(2, 1fr);
+
+    align-items: center;
+
+    justify-items: center;
+
+    padding: 15px 35px;
+}
+
+
+/* Botones de acción */
+
+.accion {
+
+    border: none;
+
+    background: transparent;
+
+    color: black;
+
+    font-size: 50px;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    transition: transform 0.2s, color 0.2s;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Hover general */
+
+.accion:hover {
+
+    transform: scale(1.1);
+}
+
+
+/* Quitar borde al hacer clic */
+
+.accion:focus {
+
+    outline: none;
+}
+
+
+/* =========================================================
+   ICONO VENTAS
+========================================================= */
+
+.accion.dinero {
+
+    font-size: 50px;
+}
+
+
+.accion.dinero:hover {
+
+    color: var(--verde-agro);
+}
+
+
+/* =========================================================
+   ICONO SEGURIDAD
+========================================================= */
+
+.accion.seguridad {
+
+    font-size: 52px;
+}
+
+
+.accion.seguridad:hover {
+
+    color: #2979ff;
+}
+
+
+/* =========================================================
+   ICONO CARRITO
+========================================================= */
+
+.accion.carrito {
+
+    font-size: 52px;
+}
+
+
+.accion.carrito:hover {
+
+    color: #ff9800;
+}
+
+
+/* =========================================================
+   ICONO FAVORITOS
+========================================================= */
+
+.accion.corazon {
+
+    font-size: 50px;
+}
+
+
+.accion.corazon:hover {
+
+    color: #e91e63;
+}
+
+
+/* =========================================================
+   ICONO CONFIGURACIÓN
+========================================================= */
+
+.accion.usuario {
+
+    font-size: 43px;
+}
+
+
+.accion.usuario:hover {
+
+    color: #555;
+}
+
+
+/* =========================================================
+   ICONO CERRAR SESIÓN
+========================================================= */
+
+.accion.salir {
+
+    font-size: 45px;
+}
+
+
+.accion.salir:hover {
+
+    color: #e53935;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    height: 310px;
+
+    background-color: rgb(0, 0, 0);
+
+    padding-top: 150px;
+
+    color: rgb(255, 252, 252);
+
+
+
+    text-align: center;
+
+    padding-top: 50px;
+}
+
+
+footer h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+footer p {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================================
+REDES SOCIALES
+========================================================= */
+
+.redes {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+
+.redes a {
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.redes i {
+
+    color: #777;
+
+    font-size: 25px;
+
+    transition: 0.2s;
+}
+
+
+.redes a:hover i {
+
+    color: var(--verde-agro);
+
+    transform: scale(1.2);
+}
+
+
+/* =========================================================
+RESPONSIVE - TABLETS
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .Navbar {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+        padding: 15px;
+    }
+
+
+    .Navbar input[type="search"] {
+
+        width: 300px;
+    }
+
+
+    .Navbar a {
+
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================================
+RESPONSIVE - CELULARES
+========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Navbar */
+
+    .Navbar {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px;
+    }
+
+
+    .Navbar a {
+
+        font-size: 16px;
+    }
+
+
+    /* Ocultar enlaces de navegación */
+
+    .Navbar > a:not(.logo-link) {
+
+        display: none;
+    }
+
+
+    /* Logo */
+
+    .imagen_logo {
+
+        width: 140px;
+    }
+
+
+    /* Buscador */
+
+    .Navbar input[type="search"] {
+
+        width: 90%;
+
+        max-width: 350px;
+    }
+
+
+    /* Botones */
+
+    .Navbar .botones {
+
+        justify-content: center;
+
+        width: 100%;
+    }
+
+
+    /* Contenido */
+
+    .contenido {
+
+        min-height: auto;
+
+        padding: 30px 15px;
+    }
+
+
+    /* Perfil */
+
+    .perfil {
+
+        height: auto;
+
+        border-radius: 55px;
+
+        max-width: 500px;
+    }
+
+
+    /* Parte superior */
+
+    .perfil-superior {
+
+        height: auto;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 30px;
+    }
+
+
+    /* Foto */
+
+    .foto-usuario {
+
+        margin-right: 0;
+
+        margin-bottom: 15px;
+    }
+
+
+    /* Nombre */
+
+    .nombre {
+
+        font-size: 27px;
+
+        white-space: normal;
+
+        text-align: center;
+    }
+
+
+    /* Parte inferior */
+
+    .perfil-inferior {
+
+        height: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Información */
+
+    .informacion {
+
+        border-right: none;
+
+        border-bottom: 4px solid #999;
+
+        padding: 25px 30px;
+
+        text-align: center;
+    }
+
+
+    /* Acciones */
+
+    .acciones {
+
+        min-height: 220px;
+
+        padding: 20px;
+    }
+
+
+    /* Footer */
+
+    footer {
+
+        height: auto;
+
+        min-height: 150px;
+
+        padding: 35px 20px;
+    }
+
+
+    footer h3 {
+
+        margin-bottom: 20px;
+    }
+
+
+    footer p {
+
+        margin-bottom: 25px;
+    }
+
+}
+
+
+/* =========================================================
+CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .foto-usuario {
+
+        width: 95px;
+
+        height: 95px;
+    }
+
+
+    .foto-usuario i {
+
+        font-size: 65px;
+    }
+
+
+    .nombre {
+
+        font-size: 23px;
+    }
+
+
+    .informacion {
+
+        font-size: 14px;
+
+        line-height: 24px;
+
+        padding: 20px;
+    }
+
+
+    .accion {
+
+        font-size: 40px !important;
+    }
+
+
+    .acciones {
+
+        min-height: 190px;
+
+        padding: 15px;
+    }
+
+
+    .Navbar .botones {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .Navbar .botones a {
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+
+    .Navbar input[type="button"] {
+
+        width: 100%;
+    }
+
+}
+            .informacion {
+                border-right: none;
+                border-bottom: 4px solid #999;
+
+                padding: 25px 40px;
+            }
+
+            .acciones {
+                min-height: 200px;
+            }
+
+            .contenido {
+                padding: 20px 10px;
+            }
+
+/*Footer------------------------------------------------------------------------------------------------------------------------------*/
+.pie-pagina {
+    background-color: #1a1a1a; 
+    color: #ffffff;
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+    gap: 30px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 220px;
+}
+
+.columna-footer h3 {
+    color: #12DA00;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.columna-footer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #12DA00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.columna-footer p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 10px;
+}
+
+.columna-footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+
+.columna-footer ul li a:hover {
+    color: #12DA00;
+}
+
+.copyright-footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 15px 20px;
+    border-top: 1px solid #333333;
+}
+
+.copyright-footer p {
+    margin: 0;
+    color: #888888;
+    font-size: 13px;
+}
+/*Fin Footer------------------------------------------------------------------------------------------------------------------------------*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial Black", Arial, sans-serif;
+}

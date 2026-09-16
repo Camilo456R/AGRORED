@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar productos</title>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | AgroRed</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/eliminar_productos.css">
+    <script src="/static/js/actions_eliminar.js"></script>
+    <link rel="icon" href="/static/img/Logo.png">
+    <link rel="stylesheet" href="/static/css/eliminar_productos.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+</head>
+<body>
+    <!--Navbar-->
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="">Productos</a>
+            <a href="">Noticias</a>
+            <a href="">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+    <!--Fin Navbar-->
+    
+    <br>
+
+    <div class="tituloproductos">
+        <h1>Eliminar</h1>
+    </div>
+
+    <br>
+    <!--Iconos Zanahoria-->
+        <div class="icono-categorias">
+            <img src="/static/img/Znahoria.png" alt="Icono" class="icono" whidth="50" height="50">
+            <div class="Texto_icono_categorias">
+                <h2>Mis Productos</h2>
+                <span>Aquí se encuentran todos los productos que has subido</span>
+            </div>
+        </div>
+        <!--Fin Iconos Zanahoria-->
+
+    <br>
+    <main>
+        <!--contenido-->
+            <div class="opciones">
+                
+                <div class="imagen">
+                    <img src="/static/img/papas.png" alt="producto1">
+                    <p id="descripcion">Papa pastusa fresca ;P</p>
+                </div> <!-- Aquí cerramos el div de imagen -->
+                
+                <div class="atributos"> <!-- Tarjeta con Precio y Unidades -->
+                    <div class="atributo-item">
+                        <label>Precio:</label>
+                        <p>$100.000</p>
+                    </div>
+                    <div class="atributo-item">
+                        <label>Unidades:</label>
+                        <p>900 Kg</p>
+                    </div>
+                </div> <!-- Cerramos atributos -->
+
+                <button class="eliminar" type="button" onclick="eliminarproductos()">Eliminar</button>
+
+            </div> <!-- Cerramos opciones -->
+            <br>
+            <div class="opciones">
+                
+                <div class="imagen">
+                    <img src="/static/img/papas.png" alt="producto1">
+                    <p id="descripcion">Papa pastusa fresca ;P</p>
+                </div> <!-- Aquí cerramos el div de imagen -->
+                
+                <div class="atributos"> <!-- Tarjeta con Precio y Unidades -->
+                    <div class="atributo-item">
+                        <label>Precio:</label>
+                        <p>$100.000</p>
+                    </div>
+                    <div class="atributo-item">
+                        <label>Unidades:</label>
+                        <p>900 Kg</p>
+                    </div>
+                </div> <!-- Cerramos atributos -->
+
+            <button class="eliminar" type="button" onclick="eliminarproductos()">Eliminar</button>
+
+            </div> <!-- Cerramos opciones -->
+        </div>
+    
+        <!--Fin contenido-->
+    </main>
+
+
+<!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+
+
+
+</body>
+</html>

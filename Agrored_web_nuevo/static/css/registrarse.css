@@ -252,6 +252,7 @@ form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     cursor: pointer;
     color: var(--gris-texto);
     user-select: none;
+    z-index: 10;
 }
 
 .btn-register {

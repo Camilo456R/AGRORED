@@ -1,5 +1,18 @@
+
+// Parte que funciona para el envio del formulario con las alertas de SweetAlert--------------------
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
+
+//Parte que funciona para el icono de la contraseña (Ver y ocultar) ----------------------------------------------------------
+    const togglePassword = document.querySelector('.toggle-password');
+    const passwordInput = document.getElementById('contrasena');
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+    });
+// Fin Parte que funciona para el icono de la contraseña (Ver y ocultar) ----------------------------------------------------------
+
 
     form.addEventListener('submit', function (e) {
         e.preventDefault(); // Evitamos el envio normal para validar y controlar la alerta primero
@@ -12,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Fin Parte que funciona para el envio del formulario con las alertas de SweetAlert--------------------
+
+
+// Funcion que de validacion de registro----------------------------------------------------------------------------------
 function validarRegistro() {
     var nombre = document.getElementById('nombre').value;
     var email = document.getElementById('correo').value;
@@ -23,7 +40,7 @@ function validarRegistro() {
     var departamento = document.getElementById('departamento').value;
     var municipio = document.getElementById('municipio').value;
 
-    // Ningun campo obligatorio puede estar vacio
+// Comprobacion si estan todos los datos llenos en el formulario------------------------------------------
     if (nombre == '' || email == '' || celular == '' || contrasena == '' ||
         numeroDocumento == '' || rol == '' || direccion == '' ||
         departamento == '' || municipio == '') {
@@ -37,15 +54,20 @@ function validarRegistro() {
 
     return true;
 }
+// Fin Funcion que de validacion de registro----------------------------------------------------------------------------------
 
+
+
+// Funcion de enviar el formulario----------------------------------------------------------------------------------------
 function enviarFormulario(form) {
     const datos = new FormData(form);
     const nombre = document.getElementById('nombre').value;
     const boton = form.querySelector('button[type="submit"]');
 
-    boton.disabled = true; // Evita doble envio mientras esperamos la respuesta
+    boton.disabled = true; // Evita doble envio de datos
 
-    fetch(form.action, {
+// Semaforo de comprobacion--------------------------------------------------------------------------------------------
+    fetch(form.action, { //Seleccionar el metodo
         method: 'POST',
         body: datos
     })
@@ -57,6 +79,7 @@ function enviarFormulario(form) {
             // El PHP escribe "...con exito" cuando todo sale bien
             var fueExitoso = texto.indexOf('exito') !== -1 && texto.indexOf('Hubo un error') === -1;
 
+// Comprobaciones de exito o fallo---------------------------------------------------------------------------
             if (fueExitoso) {
                 Swal.fire({
                     title: "Bienvenido " + nombre + "!",
@@ -64,10 +87,12 @@ function enviarFormulario(form) {
                     icon: "success",
                     draggable: true,
                     allowOutsideClick: false // obliga a darle click en "OK" antes de continuar
+
+                // Esto funciona para redirigir a inicar sesion solo despues de precionar el boton
                 }).then(function () {
-                    // Solo redirige DESPUES de que el usuario cierra la alerta
                     window.location.href = "../templates/iniciar_sesion.html";
                 });
+
             } else {
                 Swal.fire({
                     title: "No se pudo completar el registro",
@@ -78,6 +103,7 @@ function enviarFormulario(form) {
                 boton.disabled = false;
             }
         })
+        // Condicion si hubo algun error con php o la base de datos--------------------------------------------------------------------------
         .catch(function (error) {
             Swal.fire({
                 title: "Error de conexion",

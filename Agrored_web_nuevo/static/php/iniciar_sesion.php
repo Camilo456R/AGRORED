@@ -1,6 +1,7 @@
- <?php
+<?php
+    session_start(); // Primero se busca inicar sesion
 
-    header('Content-Type: application/json; charset=utf-8');
+    header('Content-Type: application/json; charset=utf-8'); // Permite el lenguage español
 
     $Servidor = "localhost";
     $Usuario = "root";
@@ -10,7 +11,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $Correo = htmlspecialchars(trim($_POST['correo'] ?? ''));
-        $Contrasena = htmlspecialchars(trim($_POST['contrasena'] ?? ''));
+        $Contrasena = $_POST['contrasena'] ?? '';
 
         if ($Correo === '' || $Contrasena === '') {
             echo json_encode(["success" => false, "message" => "Completa todos los campos"]);
@@ -24,19 +25,18 @@
             exit;
         }
 
-        // Consulta preparada para evitar inyección SQL
-        $sql = "SELECT id_usuario, nombre, correo, rol FROM usuario WHERE correo = ? AND contrasena = ?";
+        $sql = "SELECT id_usuario, nombre, correo, rol, contrasena FROM usuario WHERE correo = ?";
 
         $stmt = mysqli_prepare($Conexion, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $Correo, $Contrasena);
+        mysqli_stmt_bind_param($stmt, "s", $Correo);
         mysqli_stmt_execute($stmt);
         $resultado = mysqli_stmt_get_result($stmt);
 
-        if ($resultado && mysqli_num_rows($resultado) === 1) {
-            $usuarioData = mysqli_fetch_assoc($resultado);
+        $usuarioData = $resultado ? mysqli_fetch_assoc($resultado) : null;
 
-            // Inicia la sesión de PHP para que otras páginas sepan quién ingresó
-            session_start();
+        // password_verify hace la comparacion segura contra el hash guardado
+        if ($usuarioData && password_verify($Contrasena, $usuarioData['contrasena'])) {
+
             $_SESSION['id_usuario'] = $usuarioData['id_usuario'];
             $_SESSION['nombre'] = $usuarioData['nombre'];
             $_SESSION['rol'] = $usuarioData['rol'];
@@ -50,6 +50,8 @@
                 ]
             ]);
         } else {
+            // Mismo mensaje tanto si el correo no existe como si la contrasena esta mal,
+            // asi no le decimos a un atacante cual de los dos fallo.
             echo json_encode(["success" => false, "message" => "Correo o contraseña incorrectos"]);
         }
 

@@ -1,60 +1,56 @@
-// Cambia esto por el archivo real de tu dashboard/perfil
-const REDIRECT_URL = "../templates/perfil.html"; // <-- reemplaza con tu archivo
-
 document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', validaringreso);
-    }
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Evitamos el envio normal para controlar la respuesta JSON
+
+        enviarLogin(form);
+    });
 });
 
-async function validaringreso(evento) {
-    // Evitamos que el navegador haga el submit tradicional (eso lo dejaba en manos del PHP)
-    evento.preventDefault();
+function enviarLogin(form) {
+    const datos = new FormData(form);
+    const boton = form.querySelector('button[type="submit"]');
 
-    var email = document.getElementById('correo').value.trim();
-    var contrasena = document.getElementById('contrasena').value;
+    boton.disabled = true; // Evita doble envio mientras esperamos la respuesta
 
-    // 1. Ningún campo obligatorio puede estar vacío
-    if (email === '' || contrasena === '') {
-        Swal.fire({
-            title: "Ingresa todos los campos",
-            icon: "error",
-            draggable: true
-        });
-        return;
-    }
-
-    try {
-        const respuesta = await fetch("../static/php/iniciar_sesion.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({ correo: email, contrasena: contrasena })
-        });
-
-        const datos = await respuesta.json();
-
-        if (datos.success) {
-            // La redirección ahora vive aquí, disparada por el propio SweetAlert
+    fetch(form.action, {
+        method: 'POST',
+        body: datos
+    })
+        .then(function (response) {
+            return response.json(); // El PHP ya responde JSON
+        })
+        .then(function (data) {
+            if (data.success) {
+                Swal.fire({
+                    title: "Bienvenido " + data.usuario.nombre + "!",
+                    text: "Inicio de sesion exitoso.",
+                    icon: "success",
+                    draggable: true,
+                    allowOutsideClick: false
+                }).then(function () {
+                    // Aqui puedes redirigir segun el rol si tienes paginas distintas
+                    window.location.href = "../templates/index.html";
+                });
+            } else {
+                Swal.fire({
+                    title: "No se pudo iniciar sesion",
+                    text: data.message || "Correo o contraseña incorrectos.",
+                    icon: "error",
+                    draggable: true
+                });
+                boton.disabled = false;
+            }
+        })
+        .catch(function (error) {
             Swal.fire({
-                title: "¡Bienvenido!",
-                icon: "success",
-                draggable: true
-            }).then(function () {
-                window.location.href = REDIRECT_URL;
-            });
-        } else {
-            Swal.fire({
-                title: datos.message || "Correo o contraseña incorrectos",
+                title: "Error de conexion",
+                text: "No se pudo contactar al servidor. Verifica que Apache y MySQL esten activos.",
                 icon: "error",
                 draggable: true
             });
-        }
-    } catch (error) {
-        Swal.fire({
-            title: "Error de conexión, intenta de nuevo",
-            icon: "error",
-            draggable: true
+            console.error(error);
+            boton.disabled = false;
         });
-    }
 }

@@ -4,11 +4,16 @@
     $Contrasena_servidor = "";
     $BD = "agrored_normalizado";
 
+
+/* 
+Para declarar las variables es necesario tomar los datos del formulario con  htmlspecialchars, y pues ademas utilizar el metodo post
+*/
+
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $Nombre = htmlspecialchars($_POST['nombre']);
         $Correo = htmlspecialchars($_POST['correo']);
         $Celular = htmlspecialchars($_POST['celular']);
-        $Contrasena = htmlspecialchars($_POST['contrasena']);
+        $Contrasena = $_POST['contrasena']; // Este cambia por que se cambia la contraseña para encriptar
         $TipoDocumento = htmlspecialchars($_POST['tipo_documento']);
         $NumeroDocumento = htmlspecialchars($_POST['numero_documento']);
         $Rol = htmlspecialchars($_POST['rol']);
@@ -17,19 +22,64 @@
         $Municipio = htmlspecialchars($_POST['municipio']);
         $CodigoPostal = htmlspecialchars($_POST['codigo_postal']);
 
+        $ContrasenaHash = password_hash($Contrasena, PASSWORD_DEFAULT);// Variable especial de encriptacion
+
         $Conexion = mysqli_connect($Servidor, $Usuario, $Contrasena_servidor, $BD);
 
-        $sql = "INSERT INTO usuario (nombre, correo, celular, 
-        contrasena, tipo_documento, numero_documento, rol, direccion, departamento, 
-        municipio, codigo_postal) VALUES('$Nombre', '$Correo', '$Celular', '$Contrasena', '$TipoDocumento', '$NumeroDocumento',
-        '$Rol', '$Direccion', '$Departamento', '$Municipio', '$CodigoPostal')";
+        
 
+        $sql = "INSERT INTO usuario (nombre, correo, celular, contrasena, tipo_documento,
+                numero_documento, rol, direccion, departamento, municipio, codigo_postal)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // Los ? Hacen referencia a las variables
+            /*
+            
+            Los signos de interrogacion permiten que no se pueda inyectar datos a la base de datos
+            en caso de un hackeo o algo, pero por si solos no haran nada, por eso se declara la variable
 
-        if (mysqli_query($Conexion, $sql)){
-            echo ("Daros Guardados con exito" . " ". $Nombre);
-        }else{
-            die("Hubo un error" . mysqi_error($Conexion));
+            $stm -> Esta prepara la conexion y permite comprobar si hay errores para frenar en seco el 
+            proceso
+            */
+
+        $stmt = mysqli_prepare($Conexion, $sql);
+
+        if (!$stmt) {
+            die("Hubo un error preparando la consulta: " . mysqli_error($Conexion));
         }
+
+        mysqli_stmt_bind_param( // Este es un parametro integrado en PHP que permite isetar lso datos
+            $stmt,
+            "sssssssssss",
+            $Nombre,
+            $Correo,
+            $Celular,
+            $ContrasenaHash,
+            $TipoDocumento,
+            $NumeroDocumento,
+            $Rol,
+            $Direccion,
+            $Departamento,
+            $Municipio,
+            $CodigoPostal
+        );
+
+        /* Bueno, aqui las ssssss, significan String, para que los datos entren a la tabla de esa manera 
+        esto mantiene el orden pero para evitar errores se debe colocar en el orden exacto como esta en la tabla ademas de que
+        debe tenerse en cuenta que por cada tipo de dato.
+
+            s -> String
+            i -> Int
+            d -> float
+            b -> Blop (Binario)
+
+        */
+
+        if (mysqli_stmt_execute($stmt)){ //Parametro de comprobacion
+            echo ("Datos Guardados con exito" . " " . $Nombre);
+        }else{
+            die("Hubo un error" . mysqli_error($Conexion));
+        }
+
+        mysqli_stmt_close($stmt); // Hay que serrar la conexion para evitar vulnerabilidades
         mysqli_close($Conexion);
     }
 

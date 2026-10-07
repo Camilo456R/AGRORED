@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - AgroRed</title>
+    <link rel="stylesheet" href="/static/css/carrito.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/static/js/actions_carrito.js" defer></script>
+    <link rel="icon" href="/static/img/Logo.png">
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="AgroRed" width="30%" class="imagen_logo">
+            </a>
+            <a href="/templates/productos.html">Productos</a>
+            <a href="/templates/noticias.html">Noticias</a>
+            <a href="/templates/mejoras.html">Mejoras</a>
+            <input type="search" placeholder="Buscar...">
+
+            <div class="header-right">
+                <div class="icon-circle">&#128722;</div>
+                <div class="icon-circle">&#128100;</div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="page">
+  <h1 class="titulo">Carrito</h1>
+
+  <div class="cart-card">
+
+    <div class="item-row" data-price="1.50" data-stock="20">
+      <div class="item-img"><img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=200" alt="Manzana"></div>
+      <div class="item-info">
+        <h3>MANZANA </h3>
+        <p>Manzana dulce, crujiente y jugosa, perfecta para un snack.</p>
+        <div class="price">$1.50</div>
+      </div>
+      <div class="qty-box">
+        <input type="text" class="qty-input" value="1 pcs" inputmode="numeric">
+        <div class="qty-arrows">
+          <button type="button" class="qty-up">&#9650;</button>
+          <button type="button" class="qty-down">&#9660;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-row" data-price="2.00" data-stock="20">
+      <div class="item-img"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=200" alt="Pera"></div>
+      <div class="item-info">
+        <h3>PERA </h3>
+        <p>Fruta suave y dulce con un ligero toque cítrico, ideal para ensaladas.</p>
+        <div class="price">$2.00</div>
+      </div>
+      <div class="qty-box">
+        <input type="text" class="qty-input" value="1 pcs" inputmode="numeric">
+        <div class="qty-arrows">
+          <button type="button" class="qty-up">&#9650;</button>
+          <button type="button" class="qty-down">&#9660;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-row" data-price="3.50" data-stock="20">
+      <div class="item-img"><img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=200" alt="Mango"></div>
+      <div class="item-info">
+        <h3>MANGO </h3>
+        <p>Conocido por su sabor dulce y pulpa mantecosa, sin hebras.</p>
+        <div class="price">$3.50</div>
+      </div>
+      <div class="qty-box">
+        <input type="text" class="qty-input" value="1 pcs" inputmode="numeric">
+        <div class="qty-arrows">
+          <button type="button" class="qty-up">&#9650;</button>
+          <button type="button" class="qty-down">&#9660;</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="bottom-section">
+      <div class="summary-col">
+        <div class="summary-box">
+          <div class="line"><span>Subtotal:</span><span id="subtotal-value">$0</span></div>
+          <div class="line"><span>Envío:</span><span id="envio-value">$0</span></div>
+          <div class="line"><span>Impuesto:</span><span id="impuesto-value">$0</span></div>
+        </div>
+        <div class="total-box">Total: <span id="total-value">$0</span></div>
+      </div>
+
+      <div class="action-col">
+        <button class="btn btn-comprar">Comprar &#128722;</button>
+        <button class="btn btn-volver">&#9664;&#9664;&#9664; Volver a tienda</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="pie-pagina">
+    <div class="contenedor-footer">
+
+        <div class="columna-footer">
+            <div class="logo">AGRO<span class="red">RED</span></div>
+            <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+        </div>
+
+        <div class="columna-footer">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Mejoras</a></li>
+                <li><a href="#">Categorías</a></li>
+            </ul>
+        </div>
+
+        <div class="columna-footer">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright-footer">
+        <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

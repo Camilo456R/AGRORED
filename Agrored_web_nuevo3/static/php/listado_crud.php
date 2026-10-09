@@ -1,16 +1,14 @@
 <?php
 require_once "conexion_inicial.php";
 
-// Se excluye la contraseña a propósito: nunca debe mostrarse en un listado
 $sql = "SELECT id_usuario, P_nombre, S_nombre, P_apellido, S_apellido,
-            correo, celular, tip_documento, numero_documento,
-            rol, direccion, departamento, municipio, codigo_postal
+               correo, celular, tip_documento, numero_documento,
+               rol, direccion, departamento, municipio, codigo_postal
         FROM usuario
-        ORDER BY id_usuario DESC";
+        ORDER BY id_usuario ASC";
 
 $stmt = $pdo->query($sql);
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +17,17 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Listado de clientes</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/logo.png">
+
     <style>
         body {
             font-family: Arial, sans-serif;
             background: #f4f4f4;
-            padding: 30px;
         }
 
         .contenedor {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
             background: white;
             padding: 25px;
@@ -36,6 +36,10 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         h1 {
             margin-bottom: 20px;
+        }
+
+        .tabla-scroll {
+            overflow-x: auto;
         }
 
         table {
@@ -47,6 +51,8 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         td {
             border: 1px solid #ddd;
             padding: 10px;
+            text-align: left;
+            white-space: nowrap;
         }
 
         th {
@@ -58,21 +64,29 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background: #f8f8f8;
         }
 
-        .btn {
+        .acciones {
+            min-width: 170px;
+            text-align: center;
+        }
+
+        .btn-editar {
             display: inline-block;
-            padding: 7px 12px;
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
             text-decoration: none;
             border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .btn-eliminar {
+            display: inline-block;
+            background: red;
             color: white;
-        }
-
-
-        .editar {
-            background: #007bff;
-        }
-
-        .editar:hover {
-            background: #0056b3;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .mensaje {
@@ -82,25 +96,25 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             margin-bottom: 20px;
             border-radius: 5px;
         }
-    
     </style>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../static/img/Logo.png">
 </head>
+
+<body>
+
 <!--Navbar-->
     <nav>
         <div class="Navbar">
-            <a href="../templates/index.html" class="logo-link">
-                <img src="../static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            <a href="../../templates/index.html" class="logo-link">
+                <img src="../img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
             </a>
-            <a href="../templates/productos.html">Productos</a>
-            <a href="../templates/noticias.html">Noticias</a>
-            <a href="../templates/mejoras.html">Mejoras</a>
+            <a href="../../templates/productos.html">Productos</a>
+            <a href="../../templates/noticias.html">Noticias</a>
+            <a href="../../templates/mejoras.html">Mejoras</a>
             <input type="search" placeholder="Arroz">
 
             <div class="botones">
-                <a href="../templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
-                <a href="../templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+                <a href="../../templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="../../templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
             </div>
         </div>
     </nav>
@@ -108,25 +122,25 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+<div class="contenedor">
+
+    <h1>Listado de clientes</h1>
+
+    <?php if (isset($_GET['mensaje'])): ?>
+
+        <div class="mensaje">
+            <?= htmlspecialchars($_GET['mensaje']) ?>
+        </div>
+
+    <?php endif; ?>
 
 
-<body>
-    <div class="contenedor">
+    <div class="tabla-scroll">
 
-        <h1>Listado de clientes</h1>
-
-        <?php if (isset($_GET['mensaje'])): ?>
-
-            <div class="mensaje">
-                <?= htmlspecialchars($_GET['mensaje']) ?>
-            </div>
-
-        <?php endif; ?>
-
-        <div class="tabla-scroll">
         <table>
 
             <thead>
+
                 <tr>
                     <th>ID</th>
                     <th>Primer nombre</th>
@@ -142,9 +156,11 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Departamento</th>
                     <th>Municipio</th>
                     <th>Código postal</th>
-                    <th>Acciones</th>
+                    <th class="acciones">ACCIONES</th>
                 </tr>
+
             </thead>
+
 
             <tbody>
 
@@ -153,32 +169,88 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($usuarios as $usuario): ?>
 
                     <tr>
-                        <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
-                        <td><?= htmlspecialchars($usuario['P_nombre'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['S_nombre'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['P_apellido'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['S_apellido'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['correo'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['celular'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['tip_documento'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['numero_documento'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['rol'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['direccion'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['departamento'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['municipio'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($usuario['codigo_postal'] ?? '') ?></td>
 
                         <td>
-                            <a
-                                class="btn editar"
-                                href="editar_usuario.php?id_usuario=<?= (int) $usuario['id_usuario'] ?>"
-                            >
-                                Editar
-                            </a>
+                            <?= htmlspecialchars($usuario['id_usuario']) ?>
                         </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['P_nombre'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['S_nombre'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['P_apellido'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['S_apellido'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['correo'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['celular'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['tip_documento'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['numero_documento'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['rol'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['direccion'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['departamento'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['municipio'] ?? '') ?>
+                        </td>
+
+                        <td>
+                            <?= htmlspecialchars($usuario['codigo_postal'] ?? '') ?>
+                        </td>
+
+
+
+                        <td class="acciones">
+
+                            <a
+                                class="btn-editar"
+                                href="editar_usuario.php?id_usuario=<?= (int)$usuario['id_usuario'] ?>"
+                            >
+                                EDITAR
+                            </a>
+
+                            <a
+                                class="btn-eliminar"
+                                href="eliminar_usuario.php?id_usuario=<?= (int)$usuario['id_usuario'] ?>"
+                                onclick="return confirm('¿Está seguro de eliminar este usuario?');"
+                            >
+                                ELIMINAR
+                            </a>
+
+                        </td>
+
                     </tr>
 
                 <?php endforeach; ?>
+
 
             <?php else: ?>
 
@@ -193,12 +265,14 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tbody>
 
         </table>
-        </div>
 
     </div>
 
+</div>
 
-        <!--Footer-->
+
+
+ <!--Footer-->
 
     <footer class="pie-pagina">
         <div class="contenedor-footer">
@@ -236,6 +310,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </footer>
     <!--Fin Footer-->
 
-
 </body>
+
 </html>

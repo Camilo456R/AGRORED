@@ -6,7 +6,6 @@
     <title>Registrar Producto - AgroRed</title>
     <link rel="stylesheet" href="../static/css/agregar.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="" defer></script>
     <link rel="icon" href="../static/img/Logo.png">
 </head>
 <body>
@@ -35,22 +34,21 @@
         <img src="../static/img/Logo_letras.png" alt="AgroRed" class="logo" width="50%">
         <h1>Registrar Producto</h1>
 
-        <form id="form-producto" action="../static/php/registro_productos.php" method="post">
+        <form id="form-producto" action="../static/php/registro_producto.php" method="post">
             
-            <input type="text" id="nombre" name="nombre" class="field" placeholder="Nombre del Producto:">
+            <input type="text" id="nombre" name="nombre" class="field" placeholder="Nombre del Producto:" required>
             <span class="error" id="error-nombre"></span>
 
-            <input type="text" id="estado" name="estado" class="field" placeholder="Estado:">
+            <input type="text" id="estado_producto" name="estado_producto" class="field" placeholder="Estado:" required>
             <span class="error" id="error-estado"></span>
 
-            <textarea id="descripcion" name="descripcion" class="field" placeholder="Descripción:"></textarea>
+            <textarea id="descripcion" name="descripcion" class="field" placeholder="Descripción:" required></textarea>
             <span class="error" id="error-descripcion"></span>
 
-            
-            <input type="number" id="stock" name="stock" class="field" placeholder="Stock:">
+            <input type="number" id="stock" name="stock" class="field" placeholder="Stock:" min="0" step="1" required>
             <span class="error" id="error-stock"></span>
 
-            <input type="number" id="precio" name="precio" class="field" placeholder="Precio:">
+            <input type="number" id="precio" name="precio" class="field" placeholder="Precio:" min="0" step="0.01" required>
             <span class="error" id="error-precio"></span>
 
             

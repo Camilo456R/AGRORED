@@ -248,6 +248,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </td>
 
                     </tr>
+                    
 
                 <?php endforeach; ?>
 
@@ -269,7 +270,9 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
 </div>
-
+<br>
+<hr>
+<a href="../../templates/menu_admin.html">Volver al menu</a>
 
 
  <!--Footer-->

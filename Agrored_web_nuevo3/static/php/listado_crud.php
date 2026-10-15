@@ -65,13 +65,23 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         .acciones {
-            min-width: 170px;
+            min-width: 280px;
             text-align: center;
         }
 
         .btn-editar {
             display: inline-block;
             background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .btn-facturas {
+            display: inline-block;
+            background: #28a745;
             color: white;
             padding: 8px 12px;
             text-decoration: none;
@@ -156,6 +166,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Departamento</th>
                     <th>Municipio</th>
                     <th>Código postal</th>
+                    <th>Otras opcciones</th>
                     <th class="acciones">ACCIONES</th>
                 </tr>
 
@@ -237,6 +248,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 EDITAR
                             </a>
 
+
                             <a
                                 class="btn-eliminar"
                                 href="eliminar_usuario.php?id_usuario=<?= (int)$usuario['id_usuario'] ?>"
@@ -245,6 +257,15 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 ELIMINAR
                             </a>
 
+                        </td>
+
+                        <td>
+                            <a
+                                class="btn-facturas"
+                                href="listado_facturas_usuario.php?id_usuario=<?= (int)$usuario['id_usuario'] ?>"
+                            >
+                                FACTURAS
+                            </a>
                         </td>
 
                     </tr>

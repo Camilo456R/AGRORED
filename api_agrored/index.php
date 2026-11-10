@@ -48,8 +48,8 @@ try {
     // Consultar los artículos.
     $consulta = $conexion->query(
         'SELECT *
-         FROM usuario
-         ORDER BY id_usuario'
+        FROM usuario
+        ORDER BY id_usuario'
     );
 
     $usuarios = $consulta->fetchAll(PDO::FETCH_ASSOC);

@@ -1,0 +1,137 @@
+:root {
+  --verde-agro: hsl(152, 94%, 38%);
+  --verde-suave: #e8f7ee;
+  --amarillo-agro: #f9d71c;
+  --negro: #1a1a1a;
+  --blanco: #ffffff;
+  --gris-texto: #555555;
+  --fondo: #f4f7f6;
+  --radio: 16px;
+  --green-bright: #8de37d;
+  --green-mid: #3a9d3a;
+  --green-dark: #1e7a1e;
+  --gray-bg: #eef2f1;
+  --gray-line: #cccccc;
+}
+
+.page {
+  background: linear-gradient(
+    180deg,
+    var(--green-bright) 0%,
+    var(--green-mid) 30%,
+    var(--green-dark) 100%
+  );
+  padding: 30px 30px 50px;
+  min-height: calc(100vh - 80px);
+}
+
+h1.titulo {
+  color: #000000;
+  text-align: center;
+  font-size: 52px;
+  margin: 10px 0 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.cart-card {
+  background: var(--gray-bg);
+  border-radius: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.carrito-sin-resultados {
+  text-align: center;
+  padding: 20px;
+  color: var(--gris-texto);
+}
+
+hr.divider {
+  border: none;
+  border-top: 4px solid var(--gray-line);
+  margin: 20px 0;
+}
+
+.bottom-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.summary-col {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+
+.summary-box .line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 4px 0;
+}
+
+.total-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 22px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.action-col {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn {
+  border: none;
+  border-radius: 30px;
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.btn-comprar {
+  background: linear-gradient(180deg, #6de86d, #2fbf2f);
+}
+
+.btn-volver {
+  background: linear-gradient(90deg, #0d5f16, #3ddc3d);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.btn.disabled,
+.btn:disabled {
+  background: #b5b5b5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  h1.titulo {
+    font-size: 30px;
+  }
+}

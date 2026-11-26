@@ -1,0 +1,105 @@
+/* Estilos del Navbar extraídos de tu CSS original */
+.Navbar {
+  background-color: rgb(253, 253, 253);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 1%;
+}
+
+.Navbar a {
+  margin: 0 10px;
+  font-family: "Arial Black", Arial, sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.Navbar a:first-child {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.Navbar a:hover {
+  color: rgb(167, 167, 167);
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.Navbar input[type="search"] {
+  border-color: rgb(167, 167, 167);
+  width: 500px;
+  max-width: 100%;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline-color: #ccc;
+  font-size: 16px;
+  background-color: #DADADA;
+  background-image: url(/static/img/Lupa.png);
+  background-position: right 15px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 40px;
+}
+
+.Navbar input[type="search"]:hover {
+  outline-color: aquamarine;
+}
+
+.Navbar input[type="button"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Navbar input[type="button"].Iniciar {
+  background-color: #12DA00;
+  color: white;
+  font-weight: bold;
+}
+
+.Navbar input[type="button"].Iniciar:hover {
+  background-color: #0fb900;
+  color: white;
+  font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse {
+  background-color: #D3DA00;
+  color: white;
+  font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse:hover {
+  background-color: #bfc501;
+  color: white;
+  font-weight: bold;
+}
+
+.Navbar .botones {
+  display: flex;
+  gap: 10px;
+}
+
+.imagen_logo {
+  width: 160px;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}

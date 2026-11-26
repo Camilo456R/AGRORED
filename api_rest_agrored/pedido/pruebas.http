@@ -1,0 +1,35 @@
+##                                   ----PEDIDO----
+
+### CONSULTAR PEDIDO
+GET http://localhost/api_rest_cate/pedido/pedido.php
+Accept: application/json
+
+### REGISTRAR PEDIDO
+POST http://localhost/api_rest_cate/pedido/pedido.php
+Content-Type: application/json
+
+{
+    "id_pedido": 5,
+    "id_usuario": 1,
+    "fecha_estado": "2023-10-01",
+    "estado": "Enviando..."
+}
+
+### BORRAR REGISTRO PEDIDO
+POST http://localhost/api_rest_cate/pedido/pedido.php?accion=eliminar
+Content-Type: application/json
+
+{
+    "id_pedido": 5
+}
+
+### ACTUALIZAR PEDIDO
+PUT http://localhost/api_rest_cate/pedido/pedido.php
+Content-Type: application/json
+
+{
+    "id_pedido": 5,
+    "id_usuario": 1,
+    "fecha_estado": "2023-10-01",
+    "estado": "Recibido"
+}

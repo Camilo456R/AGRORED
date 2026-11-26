@@ -1,0 +1,23 @@
+GET http://localhost/api_rest_agrored/asignacion.php
+
+###
+POST http://localhost/api_rest_agrored/asignacion.php
+Content-Type: application/json
+
+{
+  "id_producto": 1,
+  "id_categoria": 2
+}
+
+###
+PUT http://localhost/api_rest_agrored/asignacion.php
+Content-Type: application/json
+
+{
+  "id_producto": 1,
+  "id_categoria_actual": 2,
+  "id_categoria_nueva": 3
+}
+
+###
+DELETE http://localhost/api_rest_agrored/asignacion.php?id_producto=1&id_categoria=3

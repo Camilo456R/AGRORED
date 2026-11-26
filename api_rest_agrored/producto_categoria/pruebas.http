@@ -1,0 +1,34 @@
+##                           ----CATEGRIA_PRODUCTOS----
+
+###CONSULTAR PRODUCTOS_CATEGORIA
+GET http://localhost/api_rest_cate/producto_categoria/producto_categoria.php
+Accept: application/json
+
+### REGISTRAR PRODUCTO_CATEGORIA
+POST http://localhost/api_rest_cate/producto_categoria/producto_categoria.php
+Content-Type: application/json
+
+{
+    "id_producto": "1",
+    "id_categoria": "2"
+}
+
+### BORRAR REGISTRO PRODUCTO_CATEGORIA
+POST http://localhost/api_rest_cate/producto_categoria/producto_categoria.php?accion=eliminar
+Content-Type: application/json
+
+{
+    "id_categoria": "2",
+    "id_producto": "1"
+}
+
+### ACTUALIZAR PRODUCTO_CATEGORIA
+PUT http://localhost/api_rest_cate/producto_categoria/producto_categoria.php
+Content-Type: application/json
+
+{
+  "id_categoria_anterior": "2",
+  "id_producto_anterior": "1",
+  "id_categoria": "2",
+  "id_producto": "3"
+}

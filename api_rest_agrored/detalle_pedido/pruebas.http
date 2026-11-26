@@ -1,0 +1,36 @@
+##                           ----CATEGRIA_PRODUCTOS----
+
+###CONSULTAR DETALLE_PEDIDO
+GET http://localhost/api_rest_cate/detalle_pedido/detalle_pedido.php
+Accept: application/json
+
+### REGISTRAR DETALLE_PEDIDO
+POST http://localhost/api_rest_cate/detalle_pedido/detalle_pedido.php
+Content-Type: application/json
+
+{
+    "id_pedido": "1",
+    "id_producto": "3",
+    "cantidad": "2",
+    "precio_unitario": "50.00"
+}
+
+### BORRAR REGISTRO DETALLE_PEDIDO
+POST http://localhost/api_rest_cate/detalle_pedido/detalle_pedido.php?accion=eliminar
+Content-Type: application/json
+
+{
+    "id_pedido": "1",
+    "id_producto": "3"
+}
+
+### ACTUALIZAR DETALLE_PEDIDO
+PUT http://localhost/api_rest_cate/detalle_pedido/detalle_pedido.php
+Content-Type: application/json
+
+{
+    "id_pedido": "1",
+    "id_producto": "1",
+    "cantidad": "100",
+    "precio_unitario": "50.00"
+}

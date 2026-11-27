@@ -1,0 +1,412 @@
+:root {
+    --verde-agro: #06bc67;
+    --verde-suave: #e8f7ee;
+    --amarillo-agro: #f9d71c;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-texto: #555555;
+    --fondo: #f4f7f6;
+    --radio: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Arial Black", Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--negro);
+}
+
+/* NavBar -----------------------------------------------------------------------------------------------------------------------*/
+.Navbar {
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 1%;
+}
+
+
+.Navbar a {
+    margin: 0 10px;
+    font-family: "Arial Black", Arial, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.Navbar a:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.Navbar a:hover {
+    color: rgb(167, 167, 167);
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.Navbar input[type="search"] {
+    border-color: rgb(167, 167, 167);
+    width: 500px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline-color: #ccc;
+    font-size: 16px;
+    background-color: #DADADA;
+    background-image: url(../img/Lupa.png);
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-right: 40px;
+}
+
+.Navbar input[type="search"]:hover {
+    outline-color: aquamarine;
+}
+
+.Navbar input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Navbar input[type="button"].Iniciar {
+    background-color: #12DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Iniciar:hover {
+    background-color: #0fb900;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse {
+    background-color: #D3DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse:hover {
+    background-color: #bfc501;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar .botones {
+    display: flex;
+    gap: 10px;
+}
+
+
+.imagen_logo {
+    width: 160px; /* ajusta este valor a tu gusto */
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Fin NavBar -------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Footer -----------------------------------------------------------------------------------------------------------------------*/
+.pie-pagina {
+    background-color: #1a1a1a; 
+    color: #ffffff;
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+    gap: 30px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 220px;
+}
+
+.columna-footer h3 {
+    color: #12DA00;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.columna-footer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #12DA00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.columna-footer p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 10px;
+}
+
+.columna-footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.columna-footer ul li a:hover {
+    color: #12DA00;
+}
+
+.copyright-footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 15px 20px;
+    border-top: 1px solid #333333;
+}
+
+.copyright-footer p {
+    margin: 0;
+    color: #888888;
+    font-size: 13px;
+}
+/* Fin Footer -------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Módulo de Login (Pantalla centrada exclusiva) --------------------------------------------------------------------------------*/
+/* Nota: Si necesitas que el login esté perfectamente centrado en su propia página, puedes añadir una clase como .page-login al body de esa vista */
+.login-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    min-height: 600px;
+    background: var(--blanco);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+
+    /* Centrado horizontal + espacio arriba/abajo, ya que ahora
+       comparte página con Navbar y Footer (no es vista exclusiva) */
+    margin: 60px auto;
+}
+
+/* --- SECCIÓN IZQUIERDA (IMAGEN) --- */
+.login-side-image {
+    flex: 1;
+    position: relative;
+    background: var(--negro);
+    display: none;
+}
+
+.login-side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.image-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    color: white;
+    z-index: 2;
+}
+
+.image-content h2 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.image-content h2 span { 
+    color: var(--verde-agro); 
+}
+
+.image-content p {
+    font-size: 14px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* --- SECCIÓN DERECHA (FORMULARIO) --- */
+.login-form-side {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-login {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-decoration: none;
+    color: var(--negro);
+}
+.logo-login span { 
+    color: var(--verde-agro); 
+}
+
+.login-form-side h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--gris-texto);
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* --- INPUTS --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--negro);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fafafa;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--verde-agro);
+    background: var(--blanco);
+    box-shadow: 0 0 0 4px var(--verde-suave);
+}
+
+/* --- BOTÓN --- */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: var(--verde-agro);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(6, 188, 103, 0.2);
+}
+
+.btn-login:hover {
+    background: #05a85c;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(6, 188, 103, 0.3);
+}
+
+/* --- ENLACES --- */
+.footer-links {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.footer-links a {
+    display: block;
+    text-decoration: none;
+    color: var(--gris-texto);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: 0.2s;
+}
+
+.footer-links a:hover { 
+    color: var(--verde-agro); 
+}
+
+.btn-register-link {
+    color: var(--verde-agro) !important;
+    font-weight: 700 !important;
+}
+
+/* --- ERRORES --- */
+.flash-error {
+    background: #fff5f5;
+    color: #ff4d4d;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #ffebeb;
+}
+
+@media (min-width: 900px) {
+    .login-side-image { display: block; }
+}
+
+@media (max-width: 600px) {
+    .login-container { 
+        height: auto; 
+        border-radius: 0; 
+        width: 100%; 
+        height: 100%; 
+    }
+    .login-form-side { 
+        padding: 40px 30px; 
+    }
+}

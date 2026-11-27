@@ -1,0 +1,22 @@
+:root {
+  --verde-agro: #06bc67;
+  --verde-suave: #e8f7ee;
+  --amarillo-agro: #f9d71c;
+  --negro: #1a1a1a;
+  --blanco: #ffffff;
+  --gris-texto: #555555;
+  --fondo: #f4f7f6;
+  --radio: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background-color: var(--fondo);
+  color: var(--negro);
+}

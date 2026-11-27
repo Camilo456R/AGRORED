@@ -1,0 +1,33 @@
+##                                  ----CATEGORIA----
+
+### CONSULTAR CATEGORIA
+GET http://localhost/api_rest_cate/categoria/categoria.php
+Accept: application/json
+
+### REGISTRAR CATEGORIA
+POST http://localhost/api_rest_cate/categoria/categoria.php
+Content-Type: application/json
+
+{
+    "id_categoria": "6",
+    "tipo": "Verdura",
+    "nombre": "Tomate"
+}
+
+### BORRAR REGISTRO CATEGORIA
+POST http://localhost/api_rest_cate/categoria/categoria.php?accion=eliminar
+Content-Type: application/json
+
+{
+    "id_categoria": "6"
+}
+
+### ACTUALIZAR CATEGORIA
+PUT http://localhost/api_rest_cate/categoria/categoria.php
+Content-Type: application/json
+
+{
+    "id_categoria": "6",
+    "tipo": "Verdura",
+    "nombre": "Pasta"
+}

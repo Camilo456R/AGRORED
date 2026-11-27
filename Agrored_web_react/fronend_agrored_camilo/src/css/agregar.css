@@ -1,0 +1,363 @@
+:root {
+    --verde-agro: hsl(152, 94%, 38%);
+    --verde-suave: #e8f7ee;
+    --amarillo-agro: #f9d71c;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-texto: #555555;
+    --fondo: #f4f7f6;
+    --radio: 16px;
+}
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Arial Black", Arial, sans-serif;
+    background: linear-gradient(to bottom, #8de37d 0%, #7ed957 25%, #3a9d3a 70%, #1e7a1e 100%);
+    color: var(--negro);
+}
+
+/* NavBar -----------------------------------------------------------------------------------------------------------------------*/
+.Navbar {
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 1%;
+}
+
+
+.Navbar a {
+    margin: 0 10px;
+    font-family: "Arial Black", Arial, sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.Navbar a:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.Navbar a:hover {
+    color: rgb(167, 167, 167);
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.Navbar input[type="search"] {
+    border-color: rgb(167, 167, 167);
+    width: 500px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline-color: #ccc;
+    font-size: 16px;
+    background-color: #DADADA;
+    background-image: url(../img/Lupa.png);
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-right: 40px;
+}
+
+.Navbar input[type="search"]:hover {
+    outline-color: aquamarine;
+}
+
+.Navbar input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Navbar input[type="button"].Iniciar {
+    background-color: #12DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Iniciar:hover {
+    background-color: #0fb900;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse {
+    background-color: #D3DA00;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar input[type="button"].Registrarse:hover {
+    background-color: #bfc501;
+    color: white;
+    font-weight: bold;
+}
+
+.Navbar .botones {
+    display: flex;
+    gap: 10px;
+}
+
+
+.imagen_logo {
+    width: 160px; /* ajusta este valor a tu gusto */
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Fin NavBar -------------------------------------------------------------------------------------------------------------------*/
+
+/* =========================================================
+   FORMULARIO - REGISTRAR PRODUCTO
+========================================================= */
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.card {
+    background: #d9d9d9;
+    border-radius: 60px;
+    width: 100%;
+    max-width: 440px;
+    padding: 30px 40px 45px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(#0000);
+    margin: 10px 0 20px;
+    letter-spacing: 0.5px;
+}
+
+.logo .red {
+    color: var(--verde-agro);
+}
+
+.card h1 {
+    font-size: 25px;
+    color: var(#0000);
+    margin: 0 0 25px;
+    font-weight: bold;
+}
+
+.field {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #f2f2f2;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--gris-texto);
+    margin-bottom: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+input.field {
+    height: 20px;
+}
+
+textarea.field {
+    resize: none;
+    height: 90px;
+}
+
+.field::placeholder {
+    color: var(--gris-texto);
+    font-size: 13px;
+}
+
+/* Campo de carga de imagen (reemplaza al textarea "Imagen:") */
+
+.campo-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 100%;
+    height: 90px;
+    border-radius: 8px;
+    background: #f2f2f2;
+    border: 2px dashed #bdbdbd;
+
+    margin-bottom: 16px;
+    padding: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.campo-imagen:hover {
+    border-color: var(--verde-agro);
+    background: var(--verde-suave);
+}
+
+.texto-dropzone {
+    font-size: 13px;
+    color: var(--gris-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    pointer-events: none;
+}
+
+.preview-imagen {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Estado de error para la caja de imagen */
+
+.campo-imagen.campo-invalido {
+    border-color: #e74c3c;
+    background: #fdecea;
+}
+
+/* Estado de error en un campo */
+
+.field.campo-invalido {
+    border: 2px solid #e74c3c;
+    background: #fdecea;
+}
+
+.error {
+    display: block;
+    min-height: 16px;
+    color: #e74c3c;
+    font-size: 12px;
+    text-align: left;
+    margin-top: -12px;
+    margin-bottom: 10px;
+}
+
+.mensaje-exito {
+    display: none;
+    color: var(--verde-agro);
+    background: var(--verde-suave);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.mensaje-exito.mostrar {
+    display: block;
+}
+
+button.crear {
+    background: var(--verde-agro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 0;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+button.crear:hover {
+    filter: brightness(0.9);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pie-pagina {
+    background-color: #111111;
+    color: var(--blanco);
+    padding: 40px 60px 20px;
+}
+
+.contenedor-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.columna-footer h3,
+.columna-footer h4 {
+    margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.columna-footer p {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cccccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.columna-footer ul {
+    list-style: none;
+}
+
+.columna-footer ul li {
+    margin-bottom: 8px;
+}
+
+.columna-footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.columna-footer ul li a:hover {
+    color: var(--verde-agro);
+}
+
+.copyright-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 13px;
+    color: #999999;
+}

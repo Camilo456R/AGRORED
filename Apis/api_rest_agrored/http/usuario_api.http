@@ -1,0 +1,136 @@
+### CONSULTAR PACIENTES
+GET http://localhost/api_rest_agrored/php/usuario.php
+Accept: application/json
+### REGISTRAR PACIENTE
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+### ELIMINAR PACIENTE 
+DELETE http://localhost/api_rest_agrored/php/usuario.php?id_usuario=13
+Accept: application/json
+
+### REGISTRAR USUARIO 1 
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Carlos",
+  "S_nombre": "Andrés",
+  "P_apellido": "Gómez",
+  "S_apellido": "Rojas",
+  "correo": "carlos.gomez@agrored.com",
+  "celular": "3104567890",
+  "contrasena": "ClaveSegura123*",
+  "tip_documento": "CC",
+  "numero_documento": "1020304050",
+  "rol": "admin",
+  "direccion": "Carrera 15 # 45-20",
+  "departamento": "Cundinamarca",
+  "municipio": "Bogotá",
+  "codigo_postal": "110111"
+}
+
+### REGISTRAR USUARIO 2 
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "María",
+  "S_nombre": "Fernanda",
+  "P_apellido": "López",
+  "S_apellido": "Díaz",
+  "correo": "maria.lopez@campo.co",
+  "celular": "3209876543",
+  "contrasena": "Agro2026#Pass",
+  "tip_documento": "CC",
+  "numero_documento": "52890123",
+  "rol": "productor",
+  "direccion": "Vereda El Rosal, Finca La Esperanza",
+  "departamento": "Boyacá",
+  "municipio": "Tunja",
+  "codigo_postal": "150001"
+}
+
+### REGISTRAR USUARIO 3 
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Juan",
+  "P_apellido": "Martínez",
+  "correo": "juan.martinez@correo.com",
+  "contrasena": "MiPassword456"
+}
+### REGISTRAR NUEVO USUARIO
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Laura",
+  "S_nombre": "Sofía",
+  "P_apellido": "Mendoza",
+  "S_apellido": "Castro",
+  "correo": "laura.mendoza2026@ejemplo.com",
+  "celular": "3001234567",
+  "contrasena": "Password123*",
+  "tip_documento": "CC",
+  "numero_documento": "1099887766",
+  "rol": "cliente",
+  "direccion": "Calle 100 # 15-20",
+  "departamento": "Cundinamarca",
+  "municipio": "Bogotá",
+  "codigo_postal": "110221"
+}
+
+### 1. REGISTRAR USUARIO (POST)
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Mateo",
+  "P_apellido": "Vargas",
+  "correo": "mateo.vargas@ejemplo.com",
+  "contrasena": "MiClaveSegura2026"
+}
+
+### 1. CREAR NUEVO USUARIO (POST)
+POST http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Sebastián",
+  "S_nombre": "David",
+  "P_apellido": "Morales",
+  "S_apellido": "Pardo",
+  "correo": "sebastian.morales@ejemplo.com",
+  "celular": "3124567890",
+  "contrasena": "ClaveSegura2026*",
+  "tip_documento": "CC",
+  "numero_documento": "1045678912",
+  "rol": "cliente",
+  "direccion": "Carrera 50 # 24-15",
+  "departamento": "Cundinamarca",
+  "municipio": "Bogotá",
+  "codigo_postal": "111321"
+}
+
+### 2. ACTUALIZAR USUARIO (PUT)
+PUT http://localhost/api_rest_agrored/php/usuario.php
+Content-Type: application/json
+
+{
+  "id_usuario": 13,
+  "P_nombre": "Tomas",
+  "S_nombre": "David",
+  "P_apellido": "Morales",
+  "S_apellido": "Pardo",
+  "correo": "sebastian.morales@ejemplo.com",
+  "celular": "311354675",
+  "tip_documento": "CC",
+  "numero_documento": "1045678912",
+  "rol": "vendedor",
+  "direccion": "Carrera 50 # 24-15",
+  "departamento": "Cundinamarca",
+  "municipio": "Bogotá",
+  "codigo_postal": "111321"
+}

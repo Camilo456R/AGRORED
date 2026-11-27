@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRORED - Pago</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="../static/css/pago.css">
+    <script src="/static/js/actions_pago.js"></script>
+    <link rel="icon" href="/static/img/Logo.png">
+
+</head>
+<body>
+
+    <nav>
+        <div class="Navbar">
+            <a href="/templates/index.html" class="logo-link">
+                <img src="/static/img/Logo_letras.png" alt="" width="30%" class="imagen_logo">
+            </a>
+            <a href="">Productos</a>
+            <a href="">Noticias</a>
+            <a href="">Mejoras</a>
+            <input type="search" placeholder="Arroz">
+
+            <div class="botones">
+                <a href="/templates/iniciar_sesion.html"><input type="button" value="Iniciar" class="Iniciar"></a>
+                <a href="/templates/registrarse.html"><input type="button" value="Registrarse" class="Registrarse"></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-pago">
+        <h1>Pago</h1>
+    </header>
+
+<main class="outer-card">
+    
+    <section class="thanks-banner">
+    <h2>GRACIAS POR AYUDAR<br>AL CAMPO!!!</h2>
+    </section>
+
+    <div class="checkout-container">
+
+    <section class="payment-section">
+        <h3 class="payment-section-title">Método de pago</h3>
+
+        <form id="form-pago" autocomplete="off">
+        
+        <div class="card-option-box">
+            <div class="card-header-option">
+            <input type="radio" id="tarjeta" name="metodo" value="tarjeta" class="custom-radio" checked>
+            <div class="header-text-container">
+                <label for="tarjeta" class="header-title">Tarjeta de crédito</label>
+                <span class="header-subtitle">Paga de forma segura con tu tarjeta de crédito o débito.</span>
+            </div>
+            </div>
+
+            <div id="campos-tarjeta">
+            <div class="inputs-row-top">
+                <div class="input-wrapper field-card-number">
+                <input type="text" id="num-tarjeta" maxlength="19" placeholder="Número de tarjeta">
+                <div class="input-icon-right"><div class="icon-card"></div></div>
+                </div>
+                <div class="input-wrapper field-exp">
+                <input type="text" id="exp-tarjeta" maxlength="5" placeholder="MM/AA">
+                </div>
+                <div class="input-wrapper field-cvc">
+                <input type="text" id="cvc-tarjeta" maxlength="4" placeholder="CVC/CVV">
+                <div class="input-icon-right"><div class="icon-info" id="btn-info-cvc" style="cursor:pointer;">i</div></div>
+                </div>
+            </div>
+
+            <div class="input-wrapper field-name">
+                <input type="text" id="nombre-titular" placeholder="Nombre del titular">
+            </div>
+            </div>
+        </div>
+
+        <div class="paypal-option-box">
+            <div class="paypal-left">
+                <input type="radio" id="paypal" name="metodo" value="paypal" class="custom-radio">
+                    <div class="header-text-container">
+                        <label for="paypal" class="header-title">PayPal</label>
+                        <span class="header-subtitle">Pagarás a través de tu cuenta de PayPal.</span>
+                    </div>
+                </div>
+            <div class="paypal-logo">PayPal</div>
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="btn-pagar" id="btn-pagar">Pagar ahora</button>
+            <button type="button" class="btn-cancelar" id="btn-cancelar">Cancelar</button>
+        </div>
+
+        </form>
+    </section>
+
+    <section class="summary-section">
+        <h3 class="summary-title">Resumen</h3>
+
+        <div class="products-grid">
+        <div class="product-item">
+            <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=100&auto=format&fit=crop&q=80" alt="Arándanos" class="product-img">
+            <div class="product-details">
+                <span class="product-name">Arándanos Orgánicos</span>
+                <span class="product-price">$4.99</span>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=100&auto=format&fit=crop&q=80" alt="Mangos" class="product-img">
+            <div class="product-details">
+                <span class="product-name">Mangos Ataulfo</span>
+                <span class="product-price">$3.50</span>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=100&auto=format&fit=crop&q=80" alt="Manzanas" class="product-img">
+            <div class="product-details">
+                <span class="product-name">Manzanas Honeycrisp</span>
+                <span class="product-price">$1.50</span>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=100&auto=format&fit=crop&q=80" alt="Peras" class="product-img">
+                <div class="product-details">
+                    <span class="product-name">Peras Anjou</span>
+                    <span class="product-price">$2.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="coupon-row" id="btn-vale">
+            <span>¿TIENES UN VALE?</span>
+            <span>▼</span>
+        </div>
+
+        <table class="totals-table">
+        <tr>
+            <td>SUBTOTAL</td>
+            <td class="amount">$11.99</td>
+        </tr>
+        <tr>
+            <td>ENVÍO</td>
+            <td class="amount">GRATIS</td>
+        </tr>
+        <tr>
+            <td>IMPUESTOS</td>
+            <td class="amount">$1.20</td>
+        </tr>
+        <tr class="total-row">
+            <td>TOTAL</td>
+            <td class="amount" id="precio-total">$13.19</td>
+        </tr>
+        </table>
+    </section>
+
+    </div>
+</main>
+
+    <!--Footer-->
+    <footer class="pie-pagina">
+        <div class="contenedor-footer">
+
+            <div class="columna-footer">
+                <h3>AGRORED</h3>
+                <p>Conectando el campo con tu mesa. Llena el formulario y empieza a vender o comprar productos frescos de la mejor calidad.</p>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Mejoras</a></li>
+                    <li><a href="#">Categorías</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright-footer">
+            <p>&copy; 2026 AGRORED. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!--Fin Footer-->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+</html>

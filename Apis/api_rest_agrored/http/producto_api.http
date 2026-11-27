@@ -1,0 +1,48 @@
+
+GET http://localhost/api_rest_agrored/php/productos.php
+
+###
+
+POST http://localhost/api_rest_agrored/php/productos.php
+Content-Type: application/json
+
+{
+    "nombre": "Plátano Hartón",
+    "estado_producto": "Disponible",
+    "descripccion": "Racimo de primera calidad",
+    "stock": 40,
+    "precio": 35000
+}
+
+###
+POST http://localhost/api_rest_agrored/php/productos.php
+Content-Type: application/json
+
+{
+  "id_usuario": 3,
+  "nombre": "Aguacate Hass",
+  "estado_producto": "Disponible",
+  "descripccion": "Aguacate fresco de exportación",
+  "stock": 300,
+  "precio": 4500
+}
+
+### ACTUALIZAR PRODUCTO
+PUT http://localhost/api_rest_agrored/php/productos.php?id_producto=4
+Content-Type: application/json
+
+{
+  "id_usuario": 3,
+  "nombre": "Papa",
+  "estado_producto": "Disponible",
+  "descripccion": "Papa de la sabana seleccionada",
+  "stock": 790,
+  "precio": 2500
+}
+
+
+
+### ELIMINAR PRODUCTO
+DELETE http://localhost/api_rest_agrored/php/productos.php?id_producto=6
+Accept: application/json
+

@@ -1,0 +1,64 @@
+### CONSULTAR PACIENTES
+GET http://localhost/api_rest_agrored/usuario.php
+Accept: application/json
+### REGISTRAR PACIENTE
+POST http://localhost/api_rest_agrored/usuario.php
+Content-Type: application/json
+
+### ELIMINAR PACIENTE P001
+DELETE http://localhost/api_rest_agrored/usuario.php?id_usuario=6
+Accept: application/json
+
+### REGISTRAR USUARIO 1 (Admin)
+POST http://localhost/api_rest_agrored/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Carlos",
+  "S_nombre": "Andrés",
+  "P_apellido": "Gómez",
+  "S_apellido": "Rojas",
+  "correo": "carlos.gomez@agrored.com",
+  "celular": "3104567890",
+  "contrasena": "ClaveSegura123*",
+  "tip_documento": "CC",
+  "numero_documento": "1020304050",
+  "rol": "admin",
+  "direccion": "Carrera 15 # 45-20",
+  "departamento": "Cundinamarca",
+  "municipio": "Bogotá",
+  "codigo_postal": "110111"
+}
+
+### REGISTRAR USUARIO 2 (Productor)
+POST http://localhost/api_rest_agrored/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "María",
+  "S_nombre": "Fernanda",
+  "P_apellido": "López",
+  "S_apellido": "Díaz",
+  "correo": "maria.lopez@campo.co",
+  "celular": "3209876543",
+  "contrasena": "Agro2026#Pass",
+  "tip_documento": "CC",
+  "numero_documento": "52890123",
+  "rol": "productor",
+  "direccion": "Vereda El Rosal, Finca La Esperanza",
+  "departamento": "Boyacá",
+  "municipio": "Tunja",
+  "codigo_postal": "150001"
+}
+
+### REGISTRAR USUARIO 3 (Cliente - Solo campos obligatorios)
+POST http://localhost/api_rest_agrored/usuario.php
+Content-Type: application/json
+
+{
+  "P_nombre": "Juan",
+  "P_apellido": "Martínez",
+  "correo": "juan.martinez@correo.com",
+  "contrasena": "MiPassword456"
+}
+

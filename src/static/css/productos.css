@@ -1,0 +1,586 @@
+
+/* =========================================================
+   1. VARIABLES GENERALES
+========================================================= */
+
+:root {
+    --verde-agro: #06bc67;
+    --verde-hover: #079e57;
+    --verde-oscuro: #087a45;
+    --verde-suave: #e8f7ee;
+    --amarillo-agro: #f9d71c;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-texto: #555555;
+    --gris-claro: #f4f7f6;
+    --radio: 16px;
+    --sombra: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   2. CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--negro);
+}
+
+/* =========================================================
+   3. NAVBAR
+========================================================= */
+
+.Navbar {
+    width: 100%;
+    min-height: 85px;
+    background-color: var(--blanco);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 4%;
+    gap: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.imagen_logo {
+    width: 160px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.Navbar a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--negro);
+    transition: color 0.3s ease;
+}
+
+.Navbar a:hover {
+    color: var(--verde-agro);
+}
+
+.Navbar a:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Buscador */
+
+.Navbar input[type="search"] {
+    width: 350px;
+    max-width: 100%;
+    padding: 11px 42px 11px 16px;
+    border-radius: 25px;
+    border: 1px solid #dddddd;
+    outline: none;
+    font-size: 15px;
+    background-color: #f4f4f4;
+    background-image: url(../img/Lupa.png);
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    transition: 0.3s ease;
+}
+
+.Navbar input[type="search"]:focus {
+    border-color: var(--verde-agro);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(6, 188, 103, 0.12);
+}
+
+/* Botones del Navbar */
+
+.Navbar .botones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Navbar input[type="button"] {
+    padding: 11px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.Navbar input[type="button"].Iniciar {
+    background-color: var(--verde-agro);
+    color: white;
+}
+
+.Navbar input[type="button"].Iniciar:hover {
+    background-color: var(--verde-hover);
+    transform: translateY(-2px);
+}
+
+.Navbar input[type="button"].Registrarse {
+    background-color: var(--amarillo-agro);
+    color: var(--negro);
+}
+
+.Navbar input[type="button"].Registrarse:hover {
+    background-color: #e6c400;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   4. SECCIÓN PRINCIPAL DE PRODUCTOS
+========================================================= */
+
+.seccion-categorias {
+    background: linear-gradient(
+        to bottom,
+        #12da00 0%,
+        #02a702 100%
+    );
+    padding: 55px 25px 70px;
+    width: 100%;
+    color: white;
+}
+
+/* Título principal */
+
+.titulo-categorias {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-categorias h2 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.titulo-categorias p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: white;
+}
+
+/* =========================================================
+   5. CATEGORÍAS: VERDURAS, FRUTAS Y GRANOS
+========================================================= */
+
+.icono-categorias {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 1100px;
+    margin: 35px auto 22px;
+    padding: 12px 18px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radio);
+}
+
+.icono {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+
+.Texto_icono_categorias {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Texto_icono_categorias h2 {
+    font-size: 24px;
+    color: white;
+}
+
+.Texto_icono_categorias span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   6. CONTENEDOR DE TARJETAS
+========================================================= */
+
+.tarjetas-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 35px;
+}
+
+/* =========================================================
+   7. TARJETAS DE PRODUCTOS
+========================================================= */
+
+.tarjeta {
+    background-color: white;
+    color: var(--negro);
+    width: 250px;
+    min-height: 340px;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
+
+.tarjeta .imagen-contenedor {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+.tarjeta .imagen-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta:hover .imagen-contenedor img {
+    transform: scale(1.08);
+}
+
+/* Etiquetas: Orgánico, Oferta, Último */
+
+.tarjeta .etiqueta {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--verde-agro);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Información del producto */
+
+.tarjeta .info-tarjeta {
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tarjeta h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--negro);
+}
+
+.tarjeta p {
+    font-size: 13px;
+    color: #777777;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* Precio y botón */
+
+.tarjeta .pie-tarjeta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.tarjeta h2 {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--verde-agro);
+    white-space: nowrap;
+}
+
+/* =========================================================
+   8. BOTÓN AGREGAR
+========================================================= */
+
+.boton-comprar {
+    background-color: var(--verde-agro);
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.boton-comprar:hover {
+    background-color: var(--verde-hover);
+    transform: scale(1.05);
+}
+
+.boton-comprar:active {
+    transform: scale(0.96);
+}
+
+/* =========================================================
+   9. FOOTER
+========================================================= */
+
+.pie-pagina {
+    background-color: #1a1a1a;
+    color: white;
+    padding-top: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px 35px;
+    gap: 35px;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 220px;
+}
+
+.columna-footer h3 {
+    color: var(--verde-agro);
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.columna-footer h4 {
+    font-size: 18px;
+    margin-bottom: 17px;
+    border-bottom: 2px solid var(--verde-agro);
+    display: inline-block;
+    padding-bottom: 7px;
+}
+
+.columna-footer p {
+    color: #cccccc;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.columna-footer ul {
+    list-style: none;
+}
+
+.columna-footer ul li {
+    margin-bottom: 12px;
+}
+
+.columna-footer ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.columna-footer ul li a:hover {
+    color: var(--verde-agro);
+}
+
+/* Derechos reservados */
+
+.copyright-footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 17px 20px;
+    border-top: 1px solid #333333;
+}
+
+.copyright-footer p {
+    color: #999999;
+    font-size: 13px;
+}
+
+/* =========================================================
+   10. TABLETAS
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .Navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .Navbar input[type="search"] {
+        width: 300px;
+    }
+
+    .tarjetas-grid {
+        gap: 20px;
+    }
+
+    .tarjeta {
+        width: 230px;
+    }
+}
+
+/* =========================================================
+   11. CELULARES
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .Navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .Navbar a {
+        font-size: 15px;
+    }
+
+    .Navbar input[type="search"] {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .Navbar .botones {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .imagen_logo {
+        width: 140px;
+    }
+
+    .seccion-categorias {
+        padding: 35px 15px 50px;
+    }
+
+    .titulo-categorias {
+        margin-bottom: 30px;
+    }
+
+    .titulo-categorias h2 {
+        font-size: 30px;
+    }
+
+    .titulo-categorias p {
+        font-size: 15px;
+    }
+
+    .icono-categorias {
+        margin-top: 25px;
+    }
+
+    .tarjetas-grid {
+        gap: 18px;
+    }
+
+    .tarjeta {
+        width: 220px;
+    }
+
+    .contenedor-footer {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+/* =========================================================
+   12. CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .Navbar a {
+        font-size: 14px;
+    }
+
+    .Navbar input[type="button"] {
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+
+    .titulo-categorias h2 {
+        font-size: 26px;
+    }
+
+    .titulo-categorias p {
+        font-size: 14px;
+    }
+
+    .icono {
+        width: 55px;
+        height: 55px;
+    }
+
+    .Texto_icono_categorias h2 {
+        font-size: 20px;
+    }
+
+    .tarjetas-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .tarjeta .imagen-contenedor {
+        height: 190px;
+    }
+
+    .columna-footer {
+        min-width: 100%;
+    }
+}
